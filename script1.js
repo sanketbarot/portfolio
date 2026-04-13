@@ -273,3 +273,397 @@ function animateAboutCounters() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', animateAboutCounters);
+
+
+
+// ========================================
+// GOOGLE ANALYTICS TRACKING
+// ID: G-T43XEEP1G7
+// SITE: https://sanketbarot.github.io/portfolio/
+// ========================================
+
+// Track any event
+function trackEvent(category, action, label) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            event_category: category,
+            event_label: label,
+            value: 1
+        });
+    }
+}
+
+// ========================================
+// AUTO TRACK ALL CLICKS
+// ========================================
+
+function initTracking() {
+
+    // 1. Track Resume Downloads
+    document.querySelectorAll('a[download]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('Resume', 'Download', 'QA_Tester_Resume.pdf');
+        });
+    });
+
+    // 2. Track Email Clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('Contact', 'Email_Click', 'sanketbarot3901@gmail.com');
+        });
+    });
+
+    // 3. Track Phone Clicks
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('Contact', 'Phone_Click', '+91 7487980840');
+        });
+    });
+
+    // 4. Track WhatsApp Clicks
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('Contact', 'WhatsApp_Click', 'WhatsApp');
+        });
+    });
+
+    // 5. Track LinkedIn Clicks
+    document.querySelectorAll('a[href*="linkedin"]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('Social', 'LinkedIn_Click', 'LinkedIn');
+        });
+    });
+
+    // 6. Track GitHub Clicks
+    document.querySelectorAll('a[href*="github"]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('Social', 'GitHub_Click', 'GitHub');
+        });
+    });
+
+    // 7. Track Hire Me Button
+    document.querySelectorAll('a[href="#contact"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            trackEvent('CTA', 'Hire_Me_Click', 'Hire Me Button');
+        });
+    });
+
+    // 8. Track View Projects Button
+    document.querySelectorAll('a[href="#projects"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            trackEvent('CTA', 'View_Projects_Click', 'View Projects Button');
+        });
+    });
+
+    // 9. Track Section Views
+    const sections = document.querySelectorAll('section[id]');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionName = entry.target.getAttribute('id');
+                trackEvent('Section', 'View', sectionName);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // 10. Track Scroll Depth
+    let maxScroll = 0;
+    window.addEventListener('scroll', () => {
+        const scrollPercent = Math.round(
+            (window.scrollY / 
+            (document.body.scrollHeight - window.innerHeight)) * 100
+        );
+
+        if (scrollPercent > maxScroll) {
+            if (scrollPercent >= 25 && maxScroll < 25) {
+                trackEvent('Scroll', 'Depth_25', '25%');
+            }
+            if (scrollPercent >= 50 && maxScroll < 50) {
+                trackEvent('Scroll', 'Depth_50', '50%');
+            }
+            if (scrollPercent >= 75 && maxScroll < 75) {
+                trackEvent('Scroll', 'Depth_75', '75%');
+            }
+            if (scrollPercent >= 100 && maxScroll < 100) {
+                trackEvent('Scroll', 'Depth_100', '100%');
+            }
+            maxScroll = scrollPercent;
+        }
+    });
+
+    // 11. Track Project Filter Clicks
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.getAttribute('data-filter');
+            trackEvent('Project', 'Filter_Click', filter);
+        });
+    });
+
+    // 12. Track View Details Buttons
+    document.querySelectorAll('.view-details-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            trackEvent('Project', 'View_Details', btn.closest('.project-card')
+                ?.querySelector('h3')?.textContent || 'Unknown');
+        });
+    });
+}
+
+// ========================================
+// NAVIGATION
+// ========================================
+
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+
+    document.body.style.overflow = 
+        navLinks.classList.contains('active') ? 'hidden' : '';
+}
+
+function closeMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close on outside click
+document.addEventListener('click', (e) => {
+    const navLinks = document.getElementById('navLinks');
+    if (!e.target.closest('.nav-container') && 
+        navLinks.classList.contains('active')) {
+        closeMenu();
+    }
+});
+
+// Close on ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+});
+
+// ========================================
+// NAVBAR SCROLL EFFECT
+// ========================================
+
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (nav) {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    }
+});
+
+// ========================================
+// SCROLL SPY - Active Link
+// ========================================
+
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    let current = 'home';
+
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 100) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// ========================================
+// SCROLL TO TOP BUTTON
+// ========================================
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    trackEvent('Navigation', 'Scroll_Top', 'Scroll to Top Button');
+}
+
+window.addEventListener('scroll', () => {
+    const scrollBtn = document.getElementById('scrollTop');
+    if (scrollBtn) {
+        scrollBtn.classList.toggle('visible', window.scrollY > 300);
+    }
+});
+
+// ========================================
+// SKILL PROGRESS BARS
+// ========================================
+
+function initSkillBars() {
+    const bars = document.querySelectorAll('.skill-progress');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const width = bar.getAttribute('data-progress');
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 300);
+                observer.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    bars.forEach(bar => {
+        bar.style.width = '0%';
+        observer.observe(bar);
+    });
+}
+
+// ========================================
+// CONTACT FORM
+// ========================================
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    // Track form submission
+    trackEvent('Form', 'Contact_Submit', 'Contact Form');
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        document.getElementById('contactForm').classList.add('hidden');
+        document.getElementById('formSuccess').classList.add('show');
+    }, 2000);
+}
+
+function resetForm() {
+    document.getElementById('contactForm').reset();
+    document.getElementById('contactForm').classList.remove('hidden');
+    document.getElementById('formSuccess').classList.remove('show');
+}
+
+// ========================================
+// CURRENT YEAR
+// ========================================
+
+const yearEl = document.getElementById('currentYear');
+if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+}
+
+// ========================================
+// CHARACTER COUNT FOR MESSAGE
+// ========================================
+
+const msgField = document.getElementById('message');
+const charEl = document.querySelector('.char-count');
+
+if (msgField && charEl) {
+    msgField.addEventListener('input', function () {
+        const count = this.value.length;
+        charEl.textContent = count + ' / 500';
+
+        if (count > 450) {
+            charEl.style.color = '#ef4444';
+        } else if (count > 300) {
+            charEl.style.color = '#f59e0b';
+        } else {
+            charEl.style.color = '#94a3b8';
+        }
+    });
+}
+
+// ========================================
+// PROJECT FILTER
+// ========================================
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+        // Remove active from all
+        document.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('active');
+        });
+
+        // Add active to clicked
+        this.classList.add('active');
+
+        const filter = this.getAttribute('data-filter');
+
+        // Show/Hide cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category.includes(filter)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// ========================================
+// NEWSLETTER FORM
+// ========================================
+
+function handleNewsletterSubmit(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input').value;
+    alert('Thank you! Updates will be sent to ' + email);
+    event.target.reset();
+    trackEvent('Newsletter', 'Subscribe', email);
+}
+
+// ========================================
+// PROJECT MODAL
+// ========================================
+
+function openProjectModal(projectId) {
+    trackEvent('Project', 'View_Details_Click', projectId);
+    document.querySelector('#contact').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+}
+
+// ========================================
+// FADE IN ANIMATION
+// ========================================
+
+function initFadeIn() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => observer.observe(el));
+}
+
+// ========================================
+// INITIALIZE ALL
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    initTracking();
+    initSkillBars();
+    initFadeIn();
+
+    console.log('✅ Portfolio Ready!');
+    console.log('📊 GA: G-T43XEEP1G7');
+    console.log('🌐 https://sanketbarot.github.io/portfolio/');
+});
