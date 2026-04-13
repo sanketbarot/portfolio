@@ -491,7 +491,55 @@ if (hamburger) {
 
 
 
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
 
+    var btn = document.getElementById('submitBtn');
+    var form = this;
+
+    // Show loading
+    btn.classList.add('loading');
+    btn.disabled = true;
+
+    try {
+        var response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: new FormData(form)
+        });
+
+        var result = await response.json();
+
+        if (result.success) {
+            form.style.display = 'none';
+            document.getElementById('formSuccess').classList.add('show');
+            form.reset();
+        } else {
+            alert('Failed to send. Try again.');
+        }
+    } catch (error) {
+        alert('Error! Check internet connection.');
+    }
+
+    btn.classList.remove('loading');
+    btn.disabled = false;
+});
+
+// Reset Form
+function resetForm() {
+    var form = document.getElementById('contactForm');
+    form.reset();
+    form.style.display = 'block';
+    document.getElementById('formSuccess').classList.remove('show');
+}
+
+// Character Count
+var msg = document.getElementById('message');
+var count = document.querySelector('.char-count');
+if (msg && count) {
+    msg.addEventListener('input', function() {
+        count.textContent = this.value.length + ' / 500';
+    });
+}
 
 
 

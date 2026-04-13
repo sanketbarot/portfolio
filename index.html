@@ -875,8 +875,8 @@
 
                                 <!-- Card Footer -->
                                 <div class="project-footer">
-                                    <span class="project-status active">
-                                        <span class="status-dot"></span> Currently Testing
+                                    <span class="project-status completed">
+                                        <span class="status-dot"></span> Completed
                                     </span>
                                     <button class="view-details-btn" onclick="openProjectModal('forex')">
                                         View Details <i class="fa-solid fa-arrow-right"></i>
@@ -971,8 +971,8 @@
 
                                 <!-- Card Footer -->
                                 <div class="project-footer">
-                                    <span class="project-status completed">
-                                        <span class="status-dot"></span> Completed
+                                    <span class="project-status active">
+                                        <span class="status-dot"></span> Currently Testing
                                     </span>
                                     <button class="view-details-btn" onclick="openProjectModal('elearning')">
                                         View Details <i class="fa-solid fa-arrow-right"></i>
@@ -1237,103 +1237,94 @@
                         </div>
 
                         <!-- Contact Form -->
-                        <div class="contact-form" data-aos="fade-left">
-                            <div class="form-header">
-                                <h3><i class="fa-solid fa-paper-plane"></i> Send Me a Message</h3>
-                                <p>I'll get back to you within 24 hours!</p>
-                            </div>
+                      
+                            <div class="contact-form" data-aos="fade-left">
+                                <div class="form-header">
+                                    <h3><i class="fa-solid fa-paper-plane"></i> Send Me a Message</h3>
+                                    <p>I'll get back to you within 24 hours!</p>
+                                </div>
 
-                            <form id="contactForm" onsubmit="handleSubmit(event)">
-                                <!-- Name & Email Row -->
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="name">
-                                            <i class="fa-solid fa-user"></i> Your Name
-                                        </label>
-                                        <input type="text" 
-                                            id="name" 
-                                            name="name" 
-                                            placeholder="John Doe" 
-                                            required>
-                                        <span class="error-message">Please enter your name</span>
+                                <!-- ✅ Form START -->
+                                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+                                    <!-- Your Secret Key -->
+                                    <input type="hidden" name="access_key" value="ec727972-d665-4c03-9307-c482a8095bcf">
+
+                                    <!-- Name & Email Row -->
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="name">
+                                                <i class="fa-solid fa-user"></i> Your Name
+                                            </label>
+                                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">
+                                                <i class="fa-solid fa-envelope"></i> Your Email
+                                            </label>
+                                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                        </div>
                                     </div>
+
+                                    <!-- Subject -->
                                     <div class="form-group">
-                                        <label for="email">
-                                            <i class="fa-solid fa-envelope"></i> Your Email
+                                        <label for="subject">
+                                            <i class="fa-solid fa-heading"></i> Subject
                                         </label>
-                                        <input type="email" 
-                                            id="email" 
-                                            name="email" 
-                                            placeholder="john@example.com" 
-                                            required>
-                                        <span class="error-message">Please enter a valid email</span>
+                                        <input type="text" id="subject" name="subject" placeholder="Job Opportunity / Project Discussion">
                                     </div>
-                                </div>
 
-                                <!-- Subject -->
-                                <div class="form-group">
-                                    <label for="subject">
-                                        <i class="fa-solid fa-heading"></i> Subject
-                                    </label>
-                                    <input type="text" 
-                                        id="subject" 
-                                        name="subject" 
-                                        placeholder="Job Opportunity / Project Discussion">
-                                </div>
+                                    <!-- Project Type -->
+                                    <div class="form-group">
+                                        <label for="projectType">
+                                            <i class="fa-solid fa-briefcase"></i> Project Type
+                                        </label>
+                                        <select id="projectType" name="projectType">
+                                            <option value="">Select an option</option>
+                                            <option value="fulltime">Full-time Position</option>
+                                            <option value="contract">Contract / Freelance</option>
+                                            <option value="project">Project Testing</option>
+                                            <option value="consultation">Consultation</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
 
-                                <!-- Project Type -->
-                                <div class="form-group">
-                                    <label for="projectType">
-                                        <i class="fa-solid fa-briefcase"></i> Project Type
-                                    </label>
-                                    <select id="projectType" name="projectType">
-                                        <option value="">Select an option</option>
-                                        <option value="fulltime">🏢 Full-time Position</option>
-                                        <option value="contract">📝 Contract / Freelance</option>
-                                        <option value="project">🧪 Project Testing</option>
-                                        <option value="consultation">💬 Consultation</option>
-                                        <option value="other">📌 Other</option>
-                                    </select>
-                                </div>
-
-                                <!-- Message -->
-                                <div class="form-group">
-                                    <label for="message">
-                                        <i class="fa-solid fa-message"></i> Message
-                                    </label>
-                                    <textarea id="message" 
-                                            name="message" 
-                                            rows="5" 
-                                            placeholder="Tell me about your requirements, timeline, and expectations..." 
+                                    <!-- Message -->
+                                    <div class="form-group">
+                                        <label for="message">
+                                            <i class="fa-solid fa-message"></i> Message
+                                        </label>
+                                        <textarea id="message" name="message" rows="5"
+                                            placeholder="Tell me about your requirements, timeline, and expectations..."
                                             required></textarea>
-                                    <span class="char-count">0 / 500</span>
-                                    <span class="error-message">Please enter your message</span>
-                                </div>
+                                        <span class="char-count">0 / 500</span>
+                                    </div>
 
-                                <!-- Submit Button -->
-                                <button type="submit" class="btn btn-submit" id="submitBtn">
-                                    <span class="btn-text">
-                                        <i class="fa-solid fa-paper-plane"></i> Send Message
-                                    </span>
-                                    <span class="btn-loading">
-                                        <i class="fa-solid fa-spinner fa-spin"></i> Sending...
-                                    </span>
-                                </button>
-                            </form>
+                                    <!-- Submit Button -->
+                                    <button type="submit" class="btn btn-submit" id="submitBtn">
+                                        <span class="btn-text">
+                                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                                        </span>
+                                        <span class="btn-loading">
+                                            <i class="fa-solid fa-spinner fa-spin"></i> Sending...
+                                        </span>
+                                    </button>
 
-                            <!-- Success Message -->
-                            <div class="form-success" id="formSuccess">
-                                <div class="success-icon">
-                                    <i class="fa-solid fa-circle-check"></i>
+                                <!-- ✅ Form END -->
+                                </form>
+
+                                <!-- Success Message (this stays OUTSIDE the form) -->
+                                <div class="form-success" id="formSuccess">
+                                    <div class="success-icon">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                    </div>
+                                    <h4>Message Sent Successfully!</h4>
+                                    <p>Thank you for reaching out. I'll get back to you soon.</p>
+                                    <button class="btn btn-secondary" onclick="resetForm()">
+                                        Send Another Message
+                                    </button>
                                 </div>
-                                <h4>Message Sent Successfully!</h4>
-                                <p>Thank you for reaching out. I'll get back to you soon.</p>
-                                <button class="btn btn-secondary" onclick="resetForm()">
-                                    Send Another Message
-                                </button>
                             </div>
-                        </div>
-                    </div>
 
                     <!-- Quick Actions -->
                     <div class="quick-actions" data-aos="fade-up">
