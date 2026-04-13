@@ -143,32 +143,63 @@
     }
     
     /* Navigation - Show Hamburger */
-    .hamburger {
-        display: flex;
+
+      nav {
+        background: var(--bg-nav-scrolled) !important;
+        box-shadow: var(--shadow-sm);
     }
-    
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        flex: 1; 
+    }
+
+    /* Theme Toggle Button Fix */
+    .theme-toggle-wrapper {
+        position: relative;
+        margin-right: 1.25rem; 
+        z-index: 1005; 
+    }
+
+    .toggle-label { 
+        display: none; 
+    }
+
+    /* Hamburger Icon Fix */
+    .hamburger { 
+        display: flex; 
+        z-index: 1005; 
+        position: relative;
+    }
+
+    /* 🔥 FIX: Mobile Menu Background Transparency Issue 🔥 */
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 280px;
         height: 100vh;
-        background: var(--darker);
+        width: 280px;
+        /* અહી Solid Background આપ્યું છે જેથી transparent ના થાય */
+        background-color: var(--bg-body); 
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        transition: right 0.3s ease;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 1px solid var(--border);
         z-index: 1000;
+        box-shadow: none;
     }
-    
-    .nav-links.active {
-        right: 0;
-    }
-    
-    .nav-links a {
-        font-size: 1.1rem;
+
+    /* Menu ખુલે ત્યારે પાછળ Shadow દેખાય જેથી અલગ પડે */
+    .nav-links.active { 
+        right: 0; 
+        box-shadow: -15px 0 40px rgba(0, 0, 0, 0.3);
     }
     
     /* Hero - Stack Layout */
