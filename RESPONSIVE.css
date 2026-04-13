@@ -272,67 +272,71 @@
     .skills {
         padding: 4rem 1.5rem;
     }
-    
+
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        gap: 1.25rem;
     }
-    
+
     .skill-category {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
-    
+
     .category-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.25rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+
+    .section-description {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
     }
     
     /* Experience - Single Column Timeline */
     .experience {
         padding: 4rem 1.5rem;
     }
-    
+
+    .experience-container {
+        max-width: 100%;
+    }
+
     .timeline::before {
-        left: 30px;
+        left: 20px;
     }
-    
-    .timeline-item,
-    .timeline-item:nth-child(even) {
-        width: 100%;
-        padding-left: 80px;
-        padding-right: 0;
-        margin-left: 0;
-        justify-content: flex-start;
+
+    .timeline-item {
+        padding-left: 65px;
+        padding-bottom: 2rem;
     }
-    
-    .timeline-dot,
-    .timeline-item:nth-child(even) .timeline-dot {
-        left: 5px;
-        right: auto;
+
+    .timeline-dot {
+        left: 0;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
     }
-    
-    .timeline-date,
-    .timeline-item:nth-child(even) .timeline-date {
-        position: relative;
-        left: auto;
-        right: auto;
-        text-align: left;
-        margin-bottom: 1rem;
-    }
-    
+
     .timeline-end {
-        margin-left: 30px;
+        padding-left: 65px;
     }
-    
+
+    .timeline-end .timeline-dot {
+        left: 0;
+    }
+
     .card-header {
-        flex-wrap: wrap;
+        padding: 1rem;
     }
-    
-    .job-type {
-        width: 100%;
-        text-align: center;
-        margin-top: 0.5rem;
+
+    .job-title {
+        font-size: 1rem;
+        white-space: normal;
+    }
+
+    .company-name {
+        font-size: 0.8rem;
     }
     
     /* Education */
@@ -579,85 +583,117 @@
     .skills {
         padding: 3.5rem 1.25rem;
     }
-    
+
     .skills-grid {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
+        gap: 1rem;
     }
-    
+
     .skill-category h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
-    
+
     .skill-tag {
-        padding: 0.5rem 0.75rem;
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+    }
+
+    .skill-tag i {
+        font-size: 0.65rem;
+    }
+
+    .skill-name {
         font-size: 0.8rem;
     }
-    
+
+    .skill-percent {
+        font-size: 0.8rem;
+    }
+
     .skill-bar {
-        height: 8px;
+        height: 7px;
+    }
+
+    .section-description {
+        font-size: 0.85rem;
+        padding: 0 0.5rem;
     }
     
     /* Experience */
     .experience {
         padding: 3.5rem 1.25rem;
     }
-    
+
     .timeline::before {
-        left: 20px;
+        left: 17px;
     }
-    
-    .timeline-item,
-    .timeline-item:nth-child(even) {
-        padding-left: 60px;
-        margin-bottom: 2.5rem;
+
+    .timeline-item {
+        padding-left: 58px;
+        padding-bottom: 1.75rem;
     }
-    
-    .timeline-dot,
-    .timeline-item:nth-child(even) .timeline-dot {
+
+    .timeline-dot {
         left: 0;
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .timeline-end {
+        padding-left: 58px;
+    }
+
+    .timeline-end .timeline-dot {
+        left: 0;
+    }
+
+    .date-badge {
+        font-size: 0.78rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .duration {
+        font-size: 0.72rem;
+    }
+
+    .card-header {
+        padding: 0.875rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .company-icon {
         width: 40px;
         height: 40px;
         font-size: 1rem;
+        border-radius: 8px;
     }
-    
-    .timeline-card {
-        border-radius: 16px;
-    }
-    
-    .card-header {
-        padding: 1.25rem;
-    }
-    
-    .company-logo {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-    
+
     .job-title {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
-    
-    .company {
-        font-size: 0.85rem;
+
+    .company-name {
+        font-size: 0.78rem;
     }
-    
+
+    .job-badge {
+        font-size: 0.62rem;
+        padding: 0.3rem 0.65rem;
+    }
+
     .card-body {
-        padding: 1.25rem;
+        padding: 1rem;
     }
-    
+
     .responsibilities li {
-        font-size: 0.85rem;
+        font-size: 0.82rem;
+        padding: 0.4rem 0;
     }
-    
-    .job-skills {
-        gap: 0.4rem;
-    }
-    
-    .job-skill {
-        font-size: 0.7rem;
-        padding: 0.35rem 0.65rem;
+
+    .tech-tag {
+        font-size: 0.68rem;
+        padding: 0.25rem 0.6rem;
     }
     
     /* Education */
@@ -1038,246 +1074,316 @@
         font-size: 0.7rem;
     }
     
-    /* About */
+    /* ✅ ABOUT SECTION FIX */
     .about {
         padding: 3rem 1rem;
     }
-    
+
+    .about-container {
+        padding: 0 0.5rem;
+    }
+
+    .about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        text-align: center;
+    }
+
     .profile-box {
-        width: 220px;
-        height: 220px;
+        width: 210px;
+        height: 210px;
         border-radius: 16px;
     }
-    
+
     .profile-emoji {
         font-size: 5rem;
     }
-    
+
     .experience-badge {
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
+        right: 0;
         bottom: -5px;
-        right: -5px;
+        border-width: 2px;
     }
-    
-    .badge-number {
+
+    .exp-number {
+        font-size: 1.1rem;
+    }
+
+    .exp-text {
+        font-size: 0.45rem;
+    }
+
+    .about-content h3 {
         font-size: 1.2rem;
     }
-    
-    .badge-text {
-        font-size: 0.55rem;
+
+    .name-highlight {
+        display: inline;
     }
-    
-    .about-content h3 {
-        font-size: 1.25rem;
+
+    .intro-text {
+        font-size: 0.85rem;
+        line-height: 1.5;
     }
-    
-    .about-content p {
-        font-size: 0.9rem;
-        line-height: 1.7;
+
+    .description-text {
+        font-size: 0.8rem;
+        line-height: 1.5;
     }
-    
-    .about-highlights {
-        padding: 0.875rem;
-        gap: 0.75rem;
+
+    .about-info-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+        max-width: 300px;
+        margin: 0 auto 0.75rem;
     }
-    
-    .highlight-item {
-        font-size: 0.9rem;
+
+    .info-card {
         padding: 0.4rem;
+        gap: 0.3rem;
+        border-radius: 8px;
     }
-    
-    .check-icon {
-        font-size: 1rem;
+
+    .info-card i {
+        width: 26px;
+        height: 26px;
+        font-size: 0.65rem;
+        border-radius: 6px;
     }
-    
-    .domain-tags {
-        flex-direction: column;
-        align-items: center;
+
+    .info-card strong {
+        font-size: 0.5rem;
     }
-    
-    .domain-tag {
-        width: 100%;
-        max-width: 240px;
-        justify-content: center;
+
+    .info-card span {
+        font-size: 0.75rem;
+    }
+
+    .about-highlights {
+        grid-template-columns: 1fr;
+        padding: 0.6rem;
+        gap: 0.3rem;
+        max-width: 280px;
+        margin: 0 auto 0.75rem;
+        text-align: left;
+    }
+
+    .highlight-item {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+        gap: 0.3rem;
+    }
+
+    .highlight-item i {
         font-size: 0.8rem;
     }
-    
-    .about-cta {
+
+    .domain-tags {
+        justify-content: center;
+        gap: 0.35rem;
+        margin-bottom: 1rem;
+    }
+
+    .domain-tag {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.65rem;
+    }
+
+    .domain-tag i {
+        font-size: 0.65rem;
+    }
+
+    .about-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 0.6rem;
     }
-    
-    .about-cta .btn {
+
+    .about-buttons .btn {
         width: 100%;
-        max-width: 240px;
+        max-width: 230px;
+        padding: 0.7rem 1.25rem;
+        font-size: 0.85rem;
+        min-width: auto;
     }
+
+    .about-buttons .btn i {
+        font-size: 0.85rem;
+    }
+
     
     /* Skills */
     .skills {
         padding: 3rem 1rem;
     }
-    
+
     .skill-category {
-        padding: 1.25rem;
-        border-radius: 14px;
+        padding: 1rem;
+        border-radius: 12px;
     }
-    
+
     .category-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .skill-category h3 {
+        width: 40px;
+        height: 40px;
         font-size: 1rem;
-        margin-bottom: 1.25rem;
+        border-radius: 10px;
+        margin-bottom: 0.75rem;
     }
-    
+
+    .skill-category h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
     .skill-tags {
-        gap: 0.5rem;
+        gap: 0.4rem;
     }
-    
+
     .skill-tag {
-        padding: 0.45rem 0.7rem;
-        font-size: 0.75rem;
-        border-radius: 8px;
-    }
-    
-    .skill-tag i {
+        padding: 0.35rem 0.6rem;
         font-size: 0.7rem;
+        border-radius: 6px;
     }
-    
+
+    .skill-tag i {
+        font-size: 0.6rem;
+    }
+
+    .skill-bars {
+        gap: 0.75rem;
+    }
+
     .skill-name {
-        font-size: 0.9rem;
+        font-size: 0.75rem;
     }
-    
+
+    .skill-name i {
+        font-size: 0.65rem;
+    }
+
     .skill-percent {
+        font-size: 0.75rem;
+    }
+
+    .skill-bar {
+        height: 6px;
+    }
+
+    .section-description {
         font-size: 0.8rem;
+        margin: 0.75rem auto 2rem;
     }
     
     /* Experience */
     .experience {
         padding: 3rem 1rem;
     }
-    
+
     .timeline::before {
-        left: 15px;
-        width: 3px;
+        left: 14px;
+        width: 2px;
     }
-    
-    .timeline-item,
-    .timeline-item:nth-child(even) {
+
+    .timeline-item {
         padding-left: 50px;
-        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
     }
-    
-    .timeline-dot,
-    .timeline-item:nth-child(even) .timeline-dot {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9rem;
-        left: -2px;
-    }
-    
-    .date-badge {
+
+    .timeline-dot {
+        left: 0;
+        width: 30px;
+        height: 30px;
         font-size: 0.75rem;
-        padding: 0.35rem 0.7rem;
+        box-shadow:
+            0 0 0 3px white,
+            0 0 0 5px rgba(37, 99, 235, 0.2);
     }
-    
-    .duration {
-        font-size: 0.7rem;
-    }
-    
-    .timeline-card {
-        border-radius: 14px;
-    }
-    
-    .card-header {
-        padding: 1rem;
-        gap: 0.75rem;
-    }
-    
-    .company-logo {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-        border-radius: 10px;
-    }
-    
-    .job-title {
-        font-size: 1rem;
-    }
-    
-    .company {
-        font-size: 0.8rem;
-    }
-    
-    .job-type {
-        font-size: 0.65rem;
-        padding: 0.35rem 0.8rem;
-    }
-    
-    .card-body {
-        padding: 1rem;
-    }
-    
-    .responsibilities li {
-        font-size: 0.8rem;
-        gap: 0.5rem;
-        padding: 0.35rem;
-    }
-    
-    .responsibilities li i {
-        font-size: 0.7rem;
-    }
-    
-    .job-skills {
-        margin-top: 1rem;
-        padding-top: 1rem;
-    }
-    
-    .job-skill {
-        font-size: 0.65rem;
-        padding: 0.3rem 0.55rem;
-    }
-    
-    .achievement-badge {
-        position: relative;
-        top: auto;
-        right: auto;
-        margin: 0.75rem;
-        font-size: 0.7rem;
-    }
-    
-    .project-footer {
-        padding: 0.875rem 1rem;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    
-    .project-status {
-        font-size: 0.8rem;
-    }
-    
-    .view-details-btn {
-        font-size: 0.85rem;
-    }
-    
+
     .timeline-end {
-        margin-left: 15px;
+        padding-left: 50px;
     }
-    
-    .timeline-dot.end {
-        width: 35px;
-        height: 35px;
+
+    .timeline-end .timeline-dot {
+        left: 0;
+    }
+
+    .timeline-date {
+        gap: 0.5rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .date-badge {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .duration {
+        font-size: 0.68rem;
+        padding: 0.25rem 0.55rem;
+    }
+
+    .card-header {
+        padding: 0.875rem;
+        gap: 0.6rem;
+    }
+
+    .company-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .job-title {
         font-size: 0.9rem;
     }
-    
-    .journey-start {
-        font-size: 0.8rem;
+
+    .company-name {
+        font-size: 0.75rem;
     }
+
+    .job-badge {
+        font-size: 0.6rem;
+        padding: 0.25rem 0.55rem;
+    }
+
+    .card-body {
+        padding: 0.875rem;
+    }
+
+    .responsibilities li {
+        font-size: 0.78rem;
+        gap: 0.5rem;
+        padding: 0.35rem 0;
+    }
+
+    .responsibilities li i {
+        font-size: 0.65rem;
+        margin-top: 0.3rem;
+    }
+
+    .tech-stack {
+        gap: 0.35rem;
+        padding-top: 0.75rem;
+    }
+
+    .tech-tag {
+        font-size: 0.65rem;
+        padding: 0.22rem 0.5rem;
+    }
+
+    .achievement {
+        font-size: 0.75rem;
+        padding: 0.55rem;
+    }
+
+    .journey-text {
+        font-size: 0.78rem;
+        padding: 0.4rem 0.8rem;
+    }
+
     
     /* Education */
     .education {
@@ -1754,80 +1860,176 @@
         font-size: 0.65rem;
     }
     
-    /* About */
-    .profile-box {
-        width: 200px;
-        height: 200px;
+    /* ✅ ABOUT SECTION FIX */
+    .about {
+        padding: 2.5rem 0.75rem;
     }
-    
+
+    .profile-box {
+        width: 190px;
+        height: 190px;
+    }
+
     .profile-emoji {
         font-size: 4.5rem;
     }
-    
+
     .experience-badge {
-        width: 60px;
-        height: 60px;
+        width: 58px;
+        height: 58px;
     }
-    
-    .badge-number {
+
+    .exp-number {
         font-size: 1rem;
     }
-    
+
     .about-content h3 {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
-    
-    .about-content p {
-        font-size: 0.85rem;
+
+    .intro-text {
+        font-size: 0.8rem;
     }
-    
+
+    .description-text {
+        font-size: 0.75rem;
+    }
+
+    .about-info-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.35rem;
+        max-width: 260px;
+    }
+
+    .info-card {
+        padding: 0.35rem;
+        gap: 0.25rem;
+    }
+
+    .info-card i {
+        width: 24px;
+        height: 24px;
+        font-size: 0.6rem;
+    }
+
+    .info-card strong {
+        font-size: 0.45rem;
+    }
+
+    .info-card span {
+        font-size: 0.7rem;
+    }
+
+    .about-highlights {
+        max-width: 250px;
+    }
+
     .highlight-item {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
     }
+
+    .domain-tag {
+        font-size: 0.6rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .about-buttons .btn {
+        max-width: 210px;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
     
     /* Skills */
+    .skills {
+        padding: 2.5rem 0.75rem;
+    }
+
     .skill-category {
-        padding: 1rem;
+        padding: 0.875rem;
     }
-    
+
     .category-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
     }
-    
+
     .skill-category h3 {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
-    
+
     .skill-tag {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .skill-name {
         font-size: 0.7rem;
-        padding: 0.4rem 0.6rem;
+    }
+
+    .skill-percent {
+        font-size: 0.7rem;
     }
     
     /* Experience */
-    .timeline-item,
-    .timeline-item:nth-child(even) {
-        padding-left: 45px;
+   .experience {
+        padding: 2.5rem 0.75rem;
     }
-    
-    .timeline-dot,
-    .timeline-item:nth-child(even) .timeline-dot {
-        width: 30px;
-        height: 30px;
-        font-size: 0.75rem;
+
+    .timeline::before {
+        left: 12px;
     }
-    
+
+    .timeline-item {
+        padding-left: 44px;
+    }
+
+    .timeline-dot {
+        width: 26px;
+        height: 26px;
+        font-size: 0.65rem;
+        box-shadow:
+            0 0 0 3px white,
+            0 0 0 4px rgba(37, 99, 235, 0.2);
+    }
+
+    .timeline-end {
+        padding-left: 44px;
+    }
+
+    .card-header {
+        padding: 0.75rem;
+    }
+
+    .company-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
     .job-title {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
-    
-    .company {
-        font-size: 0.75rem;
+
+    .company-name {
+        font-size: 0.7rem;
     }
-    
+
+    .job-badge {
+        font-size: 0.58rem;
+    }
+
+    .card-body {
+        padding: 0.75rem;
+    }
+
     .responsibilities li {
         font-size: 0.75rem;
+    }
+
+    .tech-tag {
+        font-size: 0.6rem;
     }
     
     /* Education */
@@ -1937,6 +2139,39 @@
     .hero-stats {
         grid-template-columns: 1fr;
     }
+
+     /* ✅ ABOUT SECTION FIX */
+    .profile-box {
+        width: 170px;
+        height: 170px;
+    }
+
+    .profile-emoji {
+        font-size: 4rem;
+    }
+
+    .experience-badge {
+        width: 50px;
+        height: 50px;
+    }
+
+    .exp-number {
+        font-size: 0.9rem;
+    }
+
+    .about-content h3 {
+        font-size: 1rem;
+    }
+
+    .about-info-cards {
+        grid-template-columns: 1fr 1fr;
+        max-width: 230px;
+    }
+
+    .about-buttons .btn {
+        max-width: 190px;
+    }
+
     
     /* Most elements need minimum padding and font adjustments */
     .btn {
@@ -1951,7 +2186,7 @@
     .profile-emoji {
         font-size: 4rem;
     }
-}
+
 
 /* ========================================
    PRINT STYLES
@@ -2062,4 +2297,5 @@
 
 @media (prefers-color-scheme: dark) {
     /* Add dark mode overrides if needed */
+}
 }

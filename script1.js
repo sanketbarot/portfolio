@@ -274,6 +274,238 @@ function animateAboutCounters() {
 // Initialize
 document.addEventListener('DOMContentLoaded', animateAboutCounters);
 
+// Skill Progress Bars Animation
+function initSkillBars() {
+    const bars = document.querySelectorAll('.skill-progress');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const width = bar.getAttribute('data-progress');
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 300);
+                observer.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    bars.forEach(bar => {
+        bar.style.width = '0%';
+        observer.observe(bar);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initSkillBars);
+
+
+// Timeline Card Hover - No transform bug
+document.querySelectorAll('.timeline-card').forEach(card => {
+    card.style.transform = 'none';
+});
+
+// Timeline Item Animation on Scroll
+function initTimeline() {
+    const items = document.querySelectorAll('.timeline-item');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }, index * 150);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    items.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(item);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initTimeline);
+
+
+// ========================================
+// THEME TOGGLE - JavaScript
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ===== Elements =====
+    const themeToggle = document.getElementById('themeToggle');
+    const toggleLabel = themeToggle.querySelector('.toggle-label');
+    const html = document.documentElement;
+
+    // ===== Get Saved Theme or System Preference =====
+    function getPreferredTheme() {
+        // 1. Check localStorage first
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved;
+
+        // 2. Check system preference
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        }
+
+        // 3. Default to light
+        return 'light';
+    }
+
+    // ===== Apply Theme =====
+    function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Update label text
+        if (toggleLabel) {
+            toggleLabel.textContent = theme === 'dark' ? 'Dark' : 'Light';
+        }
+
+        // Update meta theme-color for mobile browser
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute(
+                'content',
+                theme === 'dark' ? '#06080d' : '#f1f5f9'
+            );
+        }
+
+        // Dispatch custom event for other scripts
+        window.dispatchEvent(new CustomEvent('themechange', {
+            detail: { theme }
+        }));
+    }
+
+    // ===== Toggle Theme =====
+    function toggleTheme() {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+
+        // Add animation class
+        document.body.classList.add('theme-transitioning');
+
+        applyTheme(next);
+
+        // Remove animation class after transition
+        setTimeout(() => {
+            document.body.classList.remove('theme-transitioning');
+        }, 500);
+    }
+
+    // ===== Initialize =====
+    const initialTheme = getPreferredTheme();
+    applyTheme(initialTheme);
+
+    // ===== Event Listeners =====
+    themeToggle.addEventListener('click', toggleTheme);
+
+    // Keyboard accessibility
+    themeToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleTheme();
+        }
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => {
+            // Only auto-switch if user hasn't manually set
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+    // ===== Optional: Add Ripple Effect on Click =====
+    themeToggle.addEventListener('click', function(e) {
+        const ripple = document.createElement('div');
+        ripple.style.cssText = `
+            position: fixed;
+            top: ${e.clientY}px;
+            left: ${e.clientX}px;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: ${html.getAttribute('data-theme') === 'dark'
+                ? 'rgba(129, 140, 248, 0.1)'
+                : 'rgba(37, 99, 235, 0.1)'};
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.8s ease;
+        `;
+        document.body.appendChild(ripple);
+
+        requestAnimationFrame(() => {
+            ripple.style.width = '200vmax';
+            ripple.style.height = '200vmax';
+            ripple.style.opacity = '0';
+        });
+
+        setTimeout(() => ripple.remove(), 1000);
+    });
+
+});
+
+// ========================================
+// NAVBAR SCROLL EFFECT (existing)
+// ========================================
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    const scrollTop = document.querySelector('.scroll-top');
+
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+
+    if (scrollTop) {
+        if (window.scrollY > 300) {
+            scrollTop.classList.add('visible');
+        } else {
+            scrollTop.classList.remove('visible');
+        }
+    }
+});
+
+// ========================================
+// HAMBURGER MENU (existing)
+// ========================================
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ========================================
