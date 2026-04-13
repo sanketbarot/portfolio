@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+     <!-- ========================================
+         1️⃣ GOOGLE ANALYTICS 4 - PASTE YOUR ID
+         ======================================== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7487980840"></script>
+    <script>
+        // Don't track on localhost
+        if (window.location.hostname !== 'localhost' && 
+            window.location.hostname !== '127.0.0.1') {
+            
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-XXXXXXXXXX', {
+                page_title: document.title,
+                page_location: window.location.href,
+                send_page_view: true
+            });
+        }
+    </script>
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Sanket Brahmbhatt - QA Manual Tester with 2+ years of experience in E-learning, Telecom, and Forex domains. Expert in Manual Testing, API Testing, SDLC & STLC.">
     <meta name="keywords" content="QA Tester, Manual Testing, Software Testing, API Testing, Sanket Brahmbhatt, Quality Assurance, Ahmedabad">
@@ -1536,6 +1557,8 @@
 </script> -->
 
 
+ <script data-goatcounter="https://sanket-portfolio.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 <!-- <script src="script.js"></script> -->
 <script src="script1.js"></script>
 
