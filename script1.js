@@ -327,6 +327,70 @@ function initTypingEffect() {
     type();
 }
 
+
+// ========================================
+// TYPING EFFECT - Mobile Friendly
+// ========================================
+
+function initTypingEffect() {
+    const typingEl = document.getElementById('typingText');
+    if (!typingEl) return;
+
+    // ✅ Different texts for mobile vs desktop
+    const isMobile = window.innerWidth < 576;
+
+    const texts = isMobile
+        ? [
+            'QA Tester',
+            'Bug Hunter 🐛',
+            'QA Engineer',
+            'Test Analyst'
+        ]
+        : [
+            'QA Manual Tester',
+            'Quality Assurance Engineer',
+            'Software Test Analyst',
+            'Bug Hunter 🐛'
+        ];
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const current = texts[textIndex];
+
+        typingEl.textContent = isDeleting
+            ? current.substring(0, charIndex - 1)
+            : current.substring(0, charIndex + 1);
+
+        isDeleting ? charIndex-- : charIndex++;
+
+        if (!isDeleting && charIndex === current.length) {
+            setTimeout(() => { isDeleting = true; }, 2000);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+        }
+
+        setTimeout(type, isDeleting ? 50 : 100);
+    }
+
+    type();
+
+    // ✅ Update texts when screen resizes
+    let currentMobile = isMobile;
+    window.addEventListener('resize', () => {
+        const nowMobile = window.innerWidth < 576;
+        if (nowMobile !== currentMobile) {
+            currentMobile = nowMobile;
+            // Reset typing with new text set
+            textIndex = 0;
+            charIndex = 0;
+            isDeleting = false;
+        }
+    });
+}
 // ========================================
 // SKILL PROGRESS BARS - Animate on View
 // ========================================
