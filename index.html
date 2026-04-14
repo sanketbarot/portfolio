@@ -48,13 +48,14 @@
         
 
                                                                         <!-- Navigation -->
-                    <nav id="navbar">
-             <div class="nav-container">
+                  <nav id="navbar">
+    <div class="nav-container">
         <a href="#" class="logo">
             Port<span>folio</span>
         </a>
 
-        <ul class="nav-links">
+        <!-- ✅ Added id="navLinks" -->
+        <ul class="nav-links" id="navLinks">
             <li><a href="#hero" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -64,7 +65,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <!-- ✅ THEME TOGGLE BUTTON -->
+        <!-- Theme Toggle -->
         <div class="theme-toggle-wrapper">
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
                 <div class="toggle-track">
@@ -80,13 +81,17 @@
             </button>
         </div>
 
-        <button class="hamburger" id="hamburger">
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </div>
-        </nav>
+</nav>
+
+<!-- ✅ Overlay OUTSIDE nav -->
+<div class="nav-overlay" id="navOverlay"></div>
 
 
                                                                         <!-- Hero Section -->

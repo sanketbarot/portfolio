@@ -773,7 +773,7 @@ body {
    NAVIGATION
    ======================================== */
 
-nav {
+   nav {
     background: var(--bg-nav);
     padding: 1rem 2rem;
     position: fixed;
@@ -802,7 +802,6 @@ nav.scrolled {
     gap: 1.5rem;
 }
 
-/* Logo */
 .logo {
     color: var(--logo-color);
     font-size: 1.5rem;
@@ -823,7 +822,6 @@ nav.scrolled {
     background-clip: text;
 }
 
-/* Nav Links */
 .nav-links {
     display: flex;
     list-style: none;
@@ -870,7 +868,7 @@ nav.scrolled {
     color: var(--nav-text-hover);
 }
 
-/* Hamburger */
+/* Hamburger - Hidden on Desktop */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -904,6 +902,113 @@ nav.scrolled {
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
 }
+
+/* Overlay - Hidden on Desktop */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ========================================
+   MOBILE NAVIGATION
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    nav {
+        background: var(--bg-nav-scrolled) !important;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        flex: 1;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle-wrapper {
+        margin-right: 1rem;
+        z-index: 1005;
+    }
+
+    .toggle-label {
+        display: none;
+    }
+
+    /* Show Hamburger */
+    .hamburger {
+        display: flex;
+        z-index: 1005;
+    }
+
+    /* Mobile Menu */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        height: 100dvh;
+        background: var(--bg-card);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        padding: 5rem 1.5rem 2rem;
+        z-index: 1000;
+        border-left: 1px solid var(--border);
+        box-shadow: none;
+        overflow-y: auto;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-links.active {
+        right: 0;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.25rem;
+        font-size: 1.05rem;
+        color: var(--text-primary);
+        border-radius: 12px;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        background: var(--bg-surface-hover);
+        color: var(--primary);
+    }
+
+    /* Remove underline effect on mobile */
+    .nav-links a::after {
+        display: none;
+    }
 
 /* ========================================
    HERO SECTION

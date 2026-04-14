@@ -146,60 +146,108 @@
 
       nav {
         background: var(--bg-nav-scrolled) !important;
-        box-shadow: var(--shadow-sm);
+        padding: 0.8rem 1.5rem;
     }
 
     .nav-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: relative;
     }
 
+    /* Logo stays left */
     .logo {
-        flex: 1; 
+        flex-shrink: 0;
+        z-index: 1005;
     }
 
-    /* Theme Toggle Button Fix */
+    /* Theme toggle next to hamburger */
     .theme-toggle-wrapper {
         position: relative;
-        margin-right: 1.25rem; 
-        z-index: 1005; 
+        margin-right: 1rem;
+        z-index: 1005;
     }
 
-    .toggle-label { 
-        display: none; 
+    .toggle-label {
+        display: none;
     }
 
-    /* Hamburger Icon Fix */
-    .hamburger { 
-        display: flex; 
-        z-index: 1005; 
+    /* Hamburger button visible */
+    .hamburger {
+        display: flex;
+        z-index: 1005;
         position: relative;
     }
 
-    /* 🔥 FIX: Mobile Menu Background Transparency Issue 🔥 */
+    /* ✅ MOBILE MENU - Slide from right */
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        height: 100vh;
         width: 280px;
-        /* અહી Solid Background આપ્યું છે જેથી transparent ના થાય */
-        background-color: var(--bg-body); 
+        height: 100vh;
+        background: var(--bg-card);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border-left: 1px solid var(--border);
+        gap: 0;
+        padding: 5rem 2rem 2rem;
         z-index: 1000;
+        border-left: 1px solid var(--border);
         box-shadow: none;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
     }
 
-    /* Menu ખુલે ત્યારે પાછળ Shadow દેખાય જેથી અલગ પડે */
-    .nav-links.active { 
-        right: 0; 
-        box-shadow: -15px 0 40px rgba(0, 0, 0, 0.3);
+    /* ✅ MENU OPEN STATE */
+    .nav-links.active {
+        right: 0;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ✅ NAV LINK ITEMS */
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        border-radius: 10px;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        background: var(--bg-surface-hover);
+        color: var(--primary);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    /* ✅ DARK OVERLAY behind menu */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-overlay.active {
+        display: block;
+        opacity: 1;
     }
     
     /* Hero - Stack Layout */
