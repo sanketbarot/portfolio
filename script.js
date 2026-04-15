@@ -1,10 +1,28 @@
 // ========================================
 // PORTFOLIO - SCRIPT.JS
 // AUTHOR: Sanket Barot - QA Engineer
-// VERSION: 2.0 - Final
+// VERSION: 2.1 - Enhanced Performance
 // ========================================
 
 'use strict';
+
+// ========================================
+// UTILITIES
+// ========================================
+
+// Throttle function to limit how often a function runs (great for scroll events)
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
 
 // ========================================
 // GOOGLE ANALYTICS TRACKER
@@ -31,6 +49,7 @@ function initTheme() {
     if (!themeToggle) return;
 
     const toggleLabel = themeToggle.querySelector('.toggle-label');
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
 
     function getPreferredTheme() {
         const saved = localStorage.getItem('theme');
@@ -46,7 +65,6 @@ function initTheme() {
             toggleLabel.textContent = theme === 'dark' ? 'Dark' : 'Light';
         }
 
-        const metaTheme = document.querySelector('meta[name="theme-color"]');
         if (metaTheme) {
             metaTheme.setAttribute('content', theme === 'dark' ? '#06080d' : '#f1f5f9');
         }
@@ -134,9 +152,9 @@ function initNavigation() {
         if (e.key === 'Escape') closeMenu();
     });
 
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', throttle(() => {
         if (window.innerWidth > 991) closeMenu();
-    });
+    }, 150));
 
     window.toggleMenu = toggleMenu;
     window.closeMenu  = closeMenu;
@@ -150,9 +168,9 @@ function initNavbarScroll() {
     const nav = document.querySelector('nav');
     if (!nav) return;
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', throttle(() => {
         nav.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
+    }, 100), { passive: true });
 }
 
 // ========================================
@@ -165,12 +183,11 @@ function initScrollSpy() {
 
     if (!sections.length || !links.length) return;
 
-    // ✅ FIX: Throttle scroll event for better performance
     let ticking = false;
 
     window.addEventListener('scroll', () => {
         if (!ticking) {
-            requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => {
                 let current = '';
 
                 sections.forEach(section => {
@@ -223,9 +240,9 @@ function initScrollToTop() {
     const scrollBtn = document.getElementById('scrollTop');
     if (!scrollBtn) return;
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', throttle(() => {
         scrollBtn.classList.toggle('visible', window.scrollY > 300);
-    }, { passive: true });
+    }, 150), { passive: true });
 
     scrollBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -243,7 +260,8 @@ function initScrollToTop() {
 
 function initHeroCounters() {
     const heroStats = document.querySelector('.hero-stats');
-    if (!heroStats) return;
+    const numberEls = document.querySelectorAll('.stat-card .number');
+    if (!heroStats || !numberEls.length) return;
 
     let animated = false;
 
@@ -260,7 +278,7 @@ function initHeroCounters() {
     observer.observe(heroStats);
 
     function animateCounters() {
-        document.querySelectorAll('.stat-card .number').forEach(counter => {
+        numberEls.forEach(counter => {
             const target = parseInt(counter.getAttribute('data-count')) || 0;
             const step   = target / (2000 / 16);
             let current  = 0;
@@ -271,7 +289,7 @@ function initHeroCounters() {
                     counter.textContent = target >= 1000
                         ? (Math.floor(current / 100) / 10) + 'K'
                         : Math.floor(current);
-                    requestAnimationFrame(update);
+                    window.requestAnimationFrame(update);
                 } else {
                     counter.textContent = target >= 1000 ? '1K' : target;
                 }
@@ -337,7 +355,7 @@ function initTypingEffect() {
 
     let wasMobile = window.innerWidth < 576;
 
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', throttle(() => {
         const isMobile = window.innerWidth < 576;
         if (isMobile !== wasMobile) {
             wasMobile  = isMobile;
@@ -347,7 +365,7 @@ function initTypingEffect() {
             clearTimeout(timeoutId);
             type();
         }
-    });
+    }, 200));
 }
 
 // ========================================
@@ -362,15 +380,11 @@ function initSkillBars() {
         return;
     }
 
-    console.log('✅ Found', bars.length, 'skill bars');
-
-    // Step 1: Force all bars to 0 width immediately
     bars.forEach(bar => {
         bar.style.transition = 'none';
         bar.style.width = '0%';
     });
 
-    // Step 2: Use IntersectionObserver to animate when visible
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
@@ -378,26 +392,19 @@ function initSkillBars() {
             const bar = entry.target;
             const progress = bar.getAttribute('data-progress');
 
-            if (!progress) {
-                console.warn('⚠️ Missing data-progress on:', bar);
-                return;
-            }
+            if (!progress) return;
 
-            // Get index for stagger delay
             const allBars = Array.from(bars);
             const index = allBars.indexOf(bar);
             const staggerDelay = 150 + (index * 120);
 
             setTimeout(() => {
-                // Apply smooth transition then set width
                 bar.style.transition = 'width 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 bar.style.width = progress + '%';
 
-                // Add shine class after animation completes
                 setTimeout(() => {
                     bar.classList.add('animated');
                 }, 1900);
-
             }, staggerDelay);
 
             observer.unobserve(bar);
@@ -407,7 +414,6 @@ function initSkillBars() {
         rootMargin: '0px 0px -20px 0px'
     });
 
-    // Step 3: Observe each bar
     bars.forEach(bar => observer.observe(bar));
 }
 
@@ -417,7 +423,8 @@ function initSkillBars() {
 
 function initSkillPercentCounters() {
     const percents = document.querySelectorAll('.skill-percent');
-    if (!percents.length) return;
+    const skillsSection = document.querySelector('.skills');
+    if (!percents.length || !skillsSection) return;
 
     let animated = false;
 
@@ -431,7 +438,6 @@ function initSkillPercentCounters() {
                 const target = parseInt(el.textContent);
                 if (isNaN(target)) return;
 
-                // Start from 0
                 el.setAttribute('data-target', target);
                 el.textContent = '0%';
 
@@ -444,22 +450,18 @@ function initSkillPercentCounters() {
                     function animate(currentTime) {
                         const elapsed = currentTime - startTime;
                         const progress = Math.min(elapsed / duration, 1);
-
-                        // Ease out cubic formula
                         const eased = 1 - Math.pow(1 - progress, 3);
                         const current = Math.floor(eased * target);
 
                         el.textContent = current + '%';
 
                         if (progress < 1) {
-                            requestAnimationFrame(animate);
+                            window.requestAnimationFrame(animate);
                         } else {
                             el.textContent = target + '%';
                         }
                     }
-
-                    requestAnimationFrame(animate);
-
+                    window.requestAnimationFrame(animate);
                 }, staggerDelay);
             });
 
@@ -467,8 +469,7 @@ function initSkillPercentCounters() {
         });
     }, { threshold: 0.2 });
 
-    const skillsSection = document.querySelector('.skills');
-    if (skillsSection) observer.observe(skillsSection);
+    observer.observe(skillsSection);
 }
 
 // ========================================
@@ -584,12 +585,13 @@ function initAboutCounters() {
 
 function initEducationTimeline() {
     const steps = document.querySelectorAll('.timeline-step');
-    if (!steps.length) return;
+    const timeline = document.querySelector('.timeline-progress');
+    if (!steps.length || !timeline) return;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                document.querySelectorAll('.timeline-step').forEach((step, i) => {
+                steps.forEach((step, i) => {
                     setTimeout(() => {
                         step.style.opacity   = '1';
                         step.style.transform = 'translateY(0)';
@@ -606,8 +608,7 @@ function initEducationTimeline() {
         step.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
     });
 
-    const timeline = document.querySelector('.timeline-progress');
-    if (timeline) observer.observe(timeline);
+    observer.observe(timeline);
 }
 
 // ========================================
@@ -661,7 +662,7 @@ function initProjectFilter() {
 
                 if (show) {
                     card.style.display = 'flex';
-                    requestAnimationFrame(() => {
+                    window.requestAnimationFrame(() => {
                         card.style.opacity   = '1';
                         card.style.transform = 'scale(1)';
                     });
@@ -669,7 +670,6 @@ function initProjectFilter() {
                     card.style.opacity   = '0';
                     card.style.transform = 'scale(0.95)';
                     setTimeout(() => {
-                        // ✅ FIX: Check if still hidden before removing
                         if (card.style.opacity === '0') {
                             card.style.display = 'none';
                         }
@@ -716,7 +716,8 @@ function initProjectCards() {
 
 function initSummaryCards() {
     const cards = document.querySelectorAll('.summary-card');
-    if (!cards.length) return;
+    const summary = document.querySelector('.projects-summary');
+    if (!cards.length || !summary) return;
 
     let animated = false;
 
@@ -741,8 +742,7 @@ function initSummaryCards() {
         card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
     });
 
-    const summary = document.querySelector('.projects-summary');
-    if (summary) observer.observe(summary);
+    observer.observe(summary);
 }
 
 // ========================================
@@ -777,12 +777,13 @@ function initContactForm() {
                 form.reset();
                 trackEvent('Form', 'Contact_Submit_Success', 'Contact Form');
             } else {
+                console.error('Web3Forms Error:', result);
                 alert('Failed to send. Please try again.');
                 trackEvent('Form', 'Contact_Submit_Failed', 'Contact Form');
             }
         } catch (error) {
             alert('Network error! Check your internet connection.');
-            console.error('Form Error:', error);
+            console.error('Form Submission Error:', error);
         } finally {
             btn.classList.remove('loading');
             btn.disabled = false;
@@ -798,7 +799,6 @@ function initContactForm() {
             const len = this.value.length;
             charEl.textContent = len + ' / 500';
 
-            // ✅ ENHANCED: Use CSS variables for theme-aware colors
             if (len > 450) {
                 charEl.style.color = 'var(--danger)';
             } else if (len > 300) {
@@ -810,7 +810,7 @@ function initContactForm() {
     }
 }
 
-// Reset Form
+// Reset Form function attached to window for global access via HTML onclick
 window.resetForm = function() {
     const form      = document.getElementById('contactForm');
     const successEl = document.getElementById('formSuccess');
@@ -831,7 +831,6 @@ window.resetForm = function() {
 function initRipple() {
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function(e) {
-            // ✅ ENHANCED: Don't add ripple to submit button while loading
             if (this.classList.contains('loading')) return;
 
             const ripple = document.createElement('span');
@@ -966,7 +965,7 @@ function initTracking() {
     // Scroll Depth
     let maxScroll = 0;
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', throttle(() => {
         const total = document.body.scrollHeight - window.innerHeight;
         if (total <= 0) return;
 
@@ -979,7 +978,7 @@ function initTracking() {
         });
 
         maxScroll = Math.max(maxScroll, pct);
-    }, { passive: true });
+    }, 500), { passive: true });
 }
 
 // ========================================
@@ -992,8 +991,7 @@ function initCurrentYear() {
 }
 
 // ========================================
-// ✅ NEW: RIPPLE ANIMATION CSS
-// Adds ripple keyframe if not in CSS
+// RIPPLE ANIMATION CSS
 // ========================================
 
 function initRippleCSS() {
@@ -1033,8 +1031,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animations
     initHeroCounters();
     initTypingEffect();
-    initSkillBars();
-    initSkillCards();
+    initSkillPercentCounters(); 
     initTimeline();
     initAboutCounters();
     initEducationCards();
@@ -1042,10 +1039,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectFilter();
     initProjectCards();
     initSummaryCards();
-
-     // ✅ These two must both be called
     initSkillBars();
-    initSkillPercentCounters();
     initSkillCards();
 
     // Forms

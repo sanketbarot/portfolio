@@ -83,56 +83,119 @@
         padding: 0.8rem 1.5rem;
     }
 
-    .nav-container { gap: 0; }
-    .logo { flex: 1; font-size: 1.35rem; }
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .logo {
+        flex: 1;
+        font-size: 1.35rem;
+    }
 
     .theme-toggle-wrapper {
         margin-right: 0.75rem;
         z-index: 1005;
+        flex-shrink: 0;
     }
 
     .toggle-label { display: none; }
-    .toggle-track { width: 50px; height: 26px; }
-    .toggle-thumb { width: 20px; height: 20px; }
-    [data-theme="dark"] .toggle-thumb { left: calc(100% - 23px); }
 
-    .hamburger { display: flex; z-index: 1005; }
+    .toggle-track  { width: 50px; height: 26px; }
+    .toggle-thumb  { width: 20px; height: 20px; }
+    [data-theme="dark"] .toggle-thumb { left: calc(100% - 23px); }
+    .theme-toggle:active .toggle-thumb { width: 24px; }
+    [data-theme="dark"] .theme-toggle:active .toggle-thumb { left: calc(100% - 27px); }
+
+    .hamburger {
+        display: flex;
+        z-index: 1005;
+        flex-shrink: 0;
+    }
 
     [data-theme="light"] .hamburger span { background: #1e293b; }
     [data-theme="dark"]  .hamburger span { background: #e8ecf4; }
 
     .nav-links {
         position: fixed;
-        top: 0; right: -100%;
+        top: 0;
+        right: -100%;
         width: 280px;
+        height: 100vh;
         height: 100dvh;
         flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
         padding: 5rem 1.5rem 2rem;
         z-index: 1000;
         overflow-y: auto;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: none;
     }
 
-    [data-theme="light"] .nav-links { background: #ffffff; border-left: 1px solid #e2e8f0; }
-    [data-theme="dark"]  .nav-links { background: #0d1117; border-left: 1px solid rgba(255,255,255,0.06); }
+    [data-theme="light"] .nav-links {
+        background: #ffffff;
+        border-left: 1px solid #e2e8f0;
+    }
 
-    .nav-links.active { right: 0; box-shadow: -10px 0 40px rgba(0,0,0,0.25); }
-    .nav-links a::after { display: none; }
+    [data-theme="dark"] .nav-links {
+        background: #0d1117;
+        border-left: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-links.active {
+        right: 0;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-links li { width: 100%; }
 
     .nav-links a {
-        display: flex; align-items: center; justify-content: center;
-        padding: 1rem 1.25rem; font-size: 1.05rem;
-        border-radius: 12px; min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 1.25rem;
+        font-size: 1.05rem;
+        border-radius: 12px;
+        transition: background 0.3s ease, color 0.3s ease;
+        min-height: 48px;
     }
 
     [data-theme="light"] .nav-links a { color: #374151; }
     [data-theme="dark"]  .nav-links a { color: #cbd5e1; }
 
     [data-theme="light"] .nav-links a:hover,
-    [data-theme="light"] .nav-links a.active { color: #2563eb; background: rgba(37,99,235,0.06); }
+    [data-theme="light"] .nav-links a.active {
+        color: #2563eb;
+        background: rgba(37, 99, 235, 0.06);
+    }
 
     [data-theme="dark"] .nav-links a:hover,
-    [data-theme="dark"] .nav-links a.active { color: #67e8f9; background: rgba(103,232,249,0.06); }
+    [data-theme="dark"] .nav-links a.active {
+        color: #67e8f9;
+        background: rgba(103, 232, 249, 0.06);
+    }
+
+    .nav-links a::after { display: none; }
+
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-overlay.active {
+        display: block;
+        opacity: 1;
+    }
 
     /* ── HERO ── */
     .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
@@ -598,7 +661,7 @@
     .nav-links a { font-size: 1rem; padding: 0.875rem 1rem; }
 
     /* ── HERO ── */
-    .hero              { padding: 5.5rem 1rem 3rem; }
+    .hero               { padding: 5.5rem 1rem 3rem; }
     .hero-content .greeting { font-size: 0.9rem; }
     .hero-content h1   { font-size: 1.75rem; line-height: 1.3; }
     .hero-content .subtitle { font-size: 1.05rem; min-height: 1.75rem; }
@@ -803,200 +866,6 @@
     .footer-badges .badge { font-size: 0.65rem; padding: 0.3rem 0.6rem; }
 
     .scroll-top { bottom: 1.25rem; right: 1.25rem; width: 42px; height: 42px; font-size: 1rem; }
-}
-
-/* ========================================
-   EXTRA SMALL MOBILE (320px - 479px)
-   ======================================== */
-
-@media (max-width: 479px) {
-
-    /* ── GLOBAL ── */
-    section           { padding: 2.5rem 0.875rem; }
-    .section-title h2 { font-size: 1.4rem; }
-
-    /* ── NAV ── */
-    nav    { padding: 0.6rem 0.875rem; }
-    .logo  { font-size: 1.1rem; }
-    .nav-links { width: 90%; max-width: 240px; }
-
-    .toggle-track  { width: 46px; height: 24px; }
-    .toggle-thumb  { width: 18px; height: 18px; left: 3px; }
-    [data-theme="dark"] .toggle-thumb { left: calc(100% - 21px); }
-    .toggle-icon i { font-size: 0.6rem; }
-    .theme-toggle:active .toggle-thumb { width: 22px; }
-    [data-theme="dark"] .theme-toggle:active .toggle-thumb { left: calc(100% - 25px); }
-
-    .hamburger              { width: 36px; height: 36px; padding: 7px; }
-    .hamburger span         { width: 20px; }
-    .hamburger span:nth-child(2) { width: 14px; }
-
-    /* ── HERO ── */
-    .hero                   { padding: 5rem 0.875rem 2.5rem; }
-    .hero-content .greeting { font-size: 0.8rem; }
-    .hero-content h1        { font-size: 1.5rem; }
-    .hero-content .subtitle { font-size: 0.95rem; min-height: 1.5rem; }
-    .typing-text            { font-size: 0.95rem; }
-    .hero-content .description { font-size: 0.85rem; }
-    .availability-badge     { font-size: 0.75rem; }
-
-    .btn            { padding: 0.65rem 1rem; font-size: 0.85rem; }
-    .stat-card      { padding: 0.875rem; }
-    .stat-card .number { font-size: 1.3rem; }
-    .stat-card .label  { font-size: 0.65rem; }
-
-    /* ── ABOUT ── */
-    .about       { padding: 2.5rem 0.875rem; }
-    .about-wrapper { gap: 1.75rem; }
-
-    .profile-box   { width: 180px; height: 180px; }
-    .profile-emoji { font-size: 4.25rem; }
-
-    .experience-badge {
-        width: 62px; height: 62px;
-        right: -4px; bottom: -4px;
-    }
-
-    .exp-number { font-size: 1.1rem; }
-    .exp-text   { font-size: 0.45rem; }
-
-    .about-content h3 { font-size: 1.15rem; }
-    .intro-text       { font-size: 0.85rem; }
-    .description-text { font-size: 0.8rem; }
-
-    .about-info-cards { gap: 0.35rem; max-width: 280px; }
-    .info-card        { padding: 0.4rem; gap: 0.3rem; }
-    .info-card i      { width: 24px; height: 24px; font-size: 0.65rem; }
-    .info-card strong { font-size: 0.5rem; }
-    .info-card span   { font-size: 0.72rem; }
-
-    .about-highlights { max-width: 280px; }
-    .highlight-item   { font-size: 0.78rem; }
-
-    .domain-tag { font-size: 0.65rem; padding: 0.3rem 0.6rem; }
-
-    .about-buttons .btn { max-width: 240px; padding: 0.7rem 1rem; font-size: 0.85rem; }
-
-    /* ── SKILLS ── */
-    .skills        { padding: 2.5rem 0.75rem; }
-    .skill-category { padding: 0.875rem; }
-    .category-icon  { width: 36px; height: 36px; font-size: 0.9rem; }
-    .skill-category h3 { font-size: 0.9rem; }
-    .skill-tag      { font-size: 0.65rem; padding: 0.3rem 0.5rem; }
-    .skill-name     { font-size: 0.7rem; }
-    .skill-percent  { font-size: 0.7rem; }
-
-    /* ── EXPERIENCE ── */
-    .experience     { padding: 2.5rem 0.75rem; }
-    .timeline::before { left: 12px; }
-    .timeline-item  { padding-left: 44px; }
-    .timeline-dot   { width: 26px; height: 26px; font-size: 0.65rem; }
-    .timeline-end   { padding-left: 44px; }
-    .card-header    { padding: 0.75rem; }
-    .company-icon   { width: 32px; height: 32px; font-size: 0.8rem; }
-    .job-title      { font-size: 0.9rem; }
-    .company-name   { font-size: 0.7rem; }
-    .job-badge      { font-size: 0.58rem; }
-    .card-body      { padding: 0.75rem; }
-    .responsibilities li { font-size: 0.75rem; }
-    .tech-tag       { font-size: 0.6rem; }
-
-    /* ── EDUCATION ── */
-    .education            { padding: 2.5rem 0.75rem; }
-    .education .section-title h2 { font-size: 1.35rem; }
-    .education-card       { padding: 0.875rem; gap: 0.75rem; }
-    .degree-icon          { width: 42px; height: 42px; font-size: 1rem; border-radius: 8px; }
-    .card-content h3      { font-size: 0.9rem; }
-    .card-content .institute { font-size: 0.72rem; }
-    .card-content .year   { font-size: 0.7rem; }
-    .grade-info           { padding: 0.45rem 0.5rem; }
-    .grade-label          { font-size: 0.55rem; }
-    .grade-value          { font-size: 0.95rem !important; }
-    .education-card .duration { font-size: 0.68rem; }
-    .highlight-tag        { font-size: 0.62rem; padding: 3px 6px; }
-
-    .card-ribbon {
-        font-size: 9px; padding: 3px 26px;
-        top: 10px; right: -22px;
-    }
-
-    .cert-item        { padding: 0.5rem; }
-    .cert-item strong { font-size: 0.75rem; }
-    .cert-item span   { font-size: 0.62rem; }
-    .cert-item > i    { font-size: 0.8rem; }
-
-    .timeline-progress { padding: 0.875rem 0.625rem; }
-    .timeline-step     { min-width: 56px; }
-    .step-icon         { width: 36px; height: 36px; font-size: 0.9rem; }
-    .timeline-step span { font-size: 0.68rem; }
-    .timeline-step p    { font-size: 0.6rem; max-width: 56px; }
-    .timeline-line      { min-width: 8px; max-width: 24px; margin-bottom: 28px; }
-
-    /* ── PROJECTS ── */
-    .project-icon      { width: 50px; height: 50px; font-size: 1.2rem; }
-    .header-content h3 { font-size: 1.05rem; }
-    .features-list li  { font-size: 0.75rem; }
-
-    /* ── CONTACT ── */
-    .contact-info h3        { font-size: 1.3rem; }
-    .contact-intro          { font-size: 0.85rem; }
-    .contact-item           { padding: 0.65rem; gap: 0.75rem; }
-    .contact-item .icon-box { width: 38px; height: 38px; font-size: 0.9rem; }
-    .contact-item .details h4 { font-size: 0.65rem; }
-    .contact-item .details p  { font-size: 0.78rem; }
-
-    .availability         { padding: 0.5rem 0.875rem; gap: 0.5rem; }
-    .availability-dot     { width: 8px; height: 8px; }
-    .availability span    { font-size: 0.78rem; }
-    .social-links-contact h4 { font-size: 0.82rem; }
-    .social-icons         { gap: 0.6rem; }
-    .social-icon          { width: 40px; height: 40px; font-size: 0.95rem; border-radius: 10px; }
-
-    .contact-form  { padding: 1rem; }
-    .form-header h3 { font-size: 1rem; }
-    .form-group    { margin-bottom: 1rem; }
-    .form-group label   { font-size: 0.82rem; margin-bottom: 0.4rem; }
-    .form-group label i { font-size: 0.7rem; }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select { padding: 0.65rem; font-size: 0.85rem; }
-
-    .btn-submit  { padding: 0.7rem 1rem; font-size: 0.85rem; }
-    .char-count  { font-size: 0.6rem; }
-
-    /* ── FOOTER ── */
-    .footer-logo        { font-size: 1.35rem; }
-    .footer-description { font-size: 0.85rem; }
-    .footer-social-link { font-size: 0.8rem; }
-
-    .footer-stat        { padding: 0.4rem 0.6rem; min-width: 70px; }
-    .stat-number        { font-size: 1.15rem; }
-    .footer .stat-label { font-size: 0.58rem; }
-
-    .footer-heading     { font-size: 0.95rem; margin-bottom: 0.875rem; }
-    .footer-links a,
-    .footer-contact li  { font-size: 0.8rem; margin-bottom: 0.5rem; }
-    .footer-contact li i { font-size: 0.75rem; }
-
-    .footer-availability { padding: 0.35rem 0.7rem; }
-    .availability-text   { font-size: 0.72rem; }
-
-    .footer-social-section h4,
-    .footer-newsletter h4 { font-size: 0.95rem; }
-    .footer-social-link   { padding: 0.55rem 0.875rem; font-size: 0.78rem; }
-    .footer-social-link i  { font-size: 0.95rem; }
-    .footer-newsletter p   { font-size: 0.8rem; }
-
-    .newsletter-form input  { padding: 0.6rem 0.75rem; font-size: 0.82rem; }
-    .newsletter-form button { width: 42px; height: 42px; font-size: 0.85rem; }
-
-    .copyright      { font-size: 0.78rem; }
-    .footer-tagline { font-size: 0.72rem; }
-    .footer-badges  { gap: 0.4rem; }
-    .footer-badges .badge { font-size: 0.62rem; padding: 0.25rem 0.55rem; }
-
-    .scroll-top { bottom: 1rem; right: 1rem; width: 38px; height: 38px; font-size: 0.9rem; }
 }
 
 /* ========================================
