@@ -356,23 +356,119 @@ function initTypingEffect() {
 
 function initSkillBars() {
     const bars = document.querySelectorAll('.skill-progress');
-    if (!bars.length) return;
+
+    if (!bars.length) {
+        console.warn('⚠️ No .skill-progress elements found!');
+        return;
+    }
+
+    console.log('✅ Found', bars.length, 'skill bars');
+
+    // Step 1: Force all bars to 0 width immediately
+    bars.forEach(bar => {
+        bar.style.transition = 'none';
+        bar.style.width = '0%';
+    });
+
+    // Step 2: Use IntersectionObserver to animate when visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const bar = entry.target;
+            const progress = bar.getAttribute('data-progress');
+
+            if (!progress) {
+                console.warn('⚠️ Missing data-progress on:', bar);
+                return;
+            }
+
+            // Get index for stagger delay
+            const allBars = Array.from(bars);
+            const index = allBars.indexOf(bar);
+            const staggerDelay = 150 + (index * 120);
+
+            setTimeout(() => {
+                // Apply smooth transition then set width
+                bar.style.transition = 'width 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                bar.style.width = progress + '%';
+
+                // Add shine class after animation completes
+                setTimeout(() => {
+                    bar.classList.add('animated');
+                }, 1900);
+
+            }, staggerDelay);
+
+            observer.unobserve(bar);
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -20px 0px'
+    });
+
+    // Step 3: Observe each bar
+    bars.forEach(bar => observer.observe(bar));
+}
+
+// ========================================
+// SKILL PERCENT COUNTER - SMOOTH
+// ========================================
+
+function initSkillPercentCounters() {
+    const percents = document.querySelectorAll('.skill-percent');
+    if (!percents.length) return;
+
+    let animated = false;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bar   = entry.target;
-                const width = bar.getAttribute('data-progress') || '0';
-                setTimeout(() => { bar.style.width = width + '%'; }, 300);
-                observer.unobserve(bar);
-            }
-        });
-    }, { threshold: 0.3 });
+            if (!entry.isIntersecting || animated) return;
 
-    bars.forEach(bar => {
-        bar.style.width = '0%';
-        observer.observe(bar);
-    });
+            animated = true;
+
+            percents.forEach((el, index) => {
+                const target = parseInt(el.textContent);
+                if (isNaN(target)) return;
+
+                // Start from 0
+                el.setAttribute('data-target', target);
+                el.textContent = '0%';
+
+                const staggerDelay = 150 + (index * 120);
+
+                setTimeout(() => {
+                    const duration = 1800;
+                    const startTime = performance.now();
+
+                    function animate(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+
+                        // Ease out cubic formula
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.floor(eased * target);
+
+                        el.textContent = current + '%';
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            el.textContent = target + '%';
+                        }
+                    }
+
+                    requestAnimationFrame(animate);
+
+                }, staggerDelay);
+            });
+
+            observer.disconnect();
+        });
+    }, { threshold: 0.2 });
+
+    const skillsSection = document.querySelector('.skills');
+    if (skillsSection) observer.observe(skillsSection);
 }
 
 // ========================================
@@ -947,6 +1043,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectCards();
     initSummaryCards();
 
+     // ✅ These two must both be called
+    initSkillBars();
+    initSkillPercentCounters();
+    initSkillCards();
+
     // Forms
     initContactForm();
 
@@ -960,4 +1061,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Footer
     initCurrentYear();
+
+    console.log('✅ Portfolio Ready!');
 });

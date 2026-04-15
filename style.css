@@ -580,19 +580,16 @@ body {
 /* ── SECTION TITLES ── */
 [data-theme="light"] .section-title h2  { color: #1e293b; }
 [data-theme="light"] .section-subtitle  { color: #0891b2; }
-[data-theme="light"] .section-description { color: #64748b; }
-
-[data-theme="dark"] .section-title h2   { color: #e8ecf4; }
-[data-theme="dark"] .section-subtitle   { color: #67e8f9; }
-[data-theme="dark"] .section-description{ color: #6b7a99; }
+[data-theme="dark"]  .section-title h2  { color: #e8ecf4; }
+[data-theme="dark"]  .section-subtitle  { color: #67e8f9; }
 
 /* ── HERO (always dark bg) ── */
-.hero-content h1              { color: #f1f5f9; }
-.hero-content .greeting       { color: var(--accent); }
-.hero-content .subtitle       { color: #94a3b8; }
-.hero-content .description    { color: #94a3b8; }
+.hero-content h1          { color: #f1f5f9; }
+.hero-content .greeting   { color: var(--accent); }
+.hero-content .subtitle   { color: #94a3b8; }
+.hero-content .description { color: #94a3b8; }
 .hero-content .description strong { color: var(--accent); }
-.stat-card .label             { color: #94a3b8; }
+.stat-card .label         { color: #94a3b8; }
 
 /* ── NAV ── */
 [data-theme="light"] .logo           { color: #1e293b; }
@@ -754,8 +751,6 @@ body {
     color: #1e293b;
     background: none;
     -webkit-text-fill-color: initial;
-    -webkit-background-clip: initial;
-    background-clip: initial;
 }
 [data-theme="light"] .contact-intro        { color: #475569; }
 [data-theme="light"] .contact-intro strong { color: #0891b2; }
@@ -801,7 +796,6 @@ body {
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 [data-theme="dark"] .contact-intro         { color: #6b7a99; }
 [data-theme="dark"] .contact-intro strong  { color: #67e8f9; }
@@ -901,7 +895,8 @@ body {
 .name-highlight,
 .exp-number,
 .stat-number,
-.stat-value {
+.stat-value,
+.stat-card .number {
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -916,8 +911,8 @@ body {
 }
 
 /* ── MISC ── */
-#currentYear        { color: var(--accent); }
-.footer-tagline i   { color: var(--danger); }
+#currentYear      { color: var(--accent); }
+.footer-tagline i { color: var(--danger); }
 .scroll-top         { box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.35); }
 .scroll-top:hover   { box-shadow: 0 15px 40px rgba(var(--primary-rgb), 0.5); }
 
@@ -2141,6 +2136,53 @@ nav.scrolled {
     background: var(--skill-bar-bg);
     border-radius: 8px;
     overflow: hidden;
+    position: relative;
+}
+
+/* ✅ NO transition here - JS will set it */
+.skill-progress {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 8px;
+    width: 0%;          /* ← Start at 0 */
+    position: relative;
+    overflow: hidden;
+    will-change: width;
+    /* ❌ REMOVE any transition from here */
+}
+
+/* Shine sweep after bar fills */
+.skill-progress.animated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%
+    );
+    animation: barShine 2s ease-in-out infinite;
+}
+
+@keyframes barShine {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ========================================
+   SKILL BARS - ANIMATION CSS
+   ======================================== */
+
+.skill-bar {
+    height: 8px;
+    background: var(--skill-bar-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
 }
 
 .skill-progress {
@@ -2148,23 +2190,67 @@ nav.scrolled {
     background: var(--gradient);
     border-radius: 8px;
     width: 0;
-    transition: width 1.5s ease-out;
     position: relative;
     overflow: hidden;
     will-change: width;
+    /* Smooth cubic-bezier animation */
+    transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Shine effect */
 .skill-progress::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
-    animation: barShine 2.5s ease-in-out infinite;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%
+    );
+    animation: barShine 2s ease-in-out infinite;
+    animation-delay: 1.5s;
 }
 
 @keyframes barShine {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
+}
+
+/* Skill percent smooth color transition */
+.skill-percent {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+    min-width: 35px;
+    text-align: right;
+    transition: color 0.5s ease;
+}
+
+/* ========================================
+   SKILL PERCENT - Animate number
+   ======================================== */
+
+.skill-percent {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+    min-width: 35px;
+    text-align: right;
+    transition: color 0.35s ease;
+}
+
+/* Light theme */
+[data-theme="light"] .skill-bar {
+    background: #e2e8f0;
+}
+
+/* Dark theme */
+[data-theme="dark"] .skill-bar {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 /* ========================================
