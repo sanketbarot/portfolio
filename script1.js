@@ -1,6 +1,7 @@
 // ========================================
 // PORTFOLIO - SCRIPT.JS
 // AUTHOR: Sanket Barot - QA Engineer
+// VERSION: 2.0 - Final
 // ========================================
 
 'use strict';
@@ -20,7 +21,7 @@ function trackEvent(category, action, label) {
 }
 
 // ========================================
-// THEME TOGGLE - Light / Dark
+// THEME TOGGLE
 // ========================================
 
 function initTheme() {
@@ -58,13 +59,10 @@ function initTheme() {
         trackEvent('Theme', 'Toggle', next);
     }
 
-    // Set theme on load
     applyTheme(getPreferredTheme());
 
-    // Click
     themeToggle.addEventListener('click', toggleTheme);
 
-    // Keyboard (Enter / Space)
     themeToggle.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -72,7 +70,6 @@ function initTheme() {
         }
     });
 
-    // Auto change if system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
             applyTheme(e.matches ? 'dark' : 'light');
@@ -81,19 +78,15 @@ function initTheme() {
 }
 
 // ========================================
-// NAVIGATION - Mobile Hamburger Menu
+// NAVIGATION
 // ========================================
 
 function initNavigation() {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks  = document.getElementById('navLinks');
+    const hamburger  = document.getElementById('hamburger');
+    const navLinks   = document.getElementById('navLinks');
     const navOverlay = document.getElementById('navOverlay');
 
-    // ✅ Safety check
-    if (!hamburger) { console.error('❌ #hamburger not found'); return; }
-    if (!navLinks)  { console.error('❌ #navLinks not found');  return; }
-
-    console.log('✅ Navigation Ready');
+    if (!hamburger || !navLinks) return;
 
     function openMenu() {
         hamburger.classList.add('active');
@@ -113,24 +106,20 @@ function initNavigation() {
         navLinks.classList.contains('active') ? closeMenu() : openMenu();
     }
 
-    // Hamburger button click
     hamburger.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
         toggleMenu();
     });
 
-    // Close when any nav link is clicked
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Close when overlay is clicked
     if (navOverlay) {
         navOverlay.addEventListener('click', closeMenu);
     }
 
-    // Close when clicking outside the menu
     document.addEventListener('click', (e) => {
         if (
             navLinks.classList.contains('active') &&
@@ -141,23 +130,20 @@ function initNavigation() {
         }
     });
 
-    // Close on ESC key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeMenu();
     });
 
-    // Close when resizing to desktop
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) closeMenu();
+        if (window.innerWidth > 991) closeMenu();
     });
 
-    // Make available globally (if used in HTML onclick)
     window.toggleMenu = toggleMenu;
     window.closeMenu  = closeMenu;
 }
 
 // ========================================
-// NAVBAR - Shadow on Scroll
+// NAVBAR SCROLL
 // ========================================
 
 function initNavbarScroll() {
@@ -170,35 +156,45 @@ function initNavbarScroll() {
 }
 
 // ========================================
-// SCROLL SPY - Highlight Active Nav Link
+// SCROLL SPY
 // ========================================
 
 function initScrollSpy() {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks  = document.querySelectorAll('.nav-links a');
+    const links    = document.querySelectorAll('.nav-links a');
 
-    if (!sections.length || !navLinks.length) return;
+    if (!sections.length || !links.length) return;
+
+    // ✅ FIX: Throttle scroll event for better performance
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-        let current = '';
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                let current = '';
 
-        sections.forEach(section => {
-            if (window.scrollY >= section.offsetTop - 120) {
-                current = section.getAttribute('id');
-            }
-        });
+                sections.forEach(section => {
+                    if (window.scrollY >= section.offsetTop - 120) {
+                        current = section.getAttribute('id');
+                    }
+                });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
-        });
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+
+                ticking = false;
+            });
+            ticking = true;
+        }
     }, { passive: true });
 }
 
 // ========================================
-// SMOOTH SCROLL - Anchor Links
+// SMOOTH SCROLL
 // ========================================
 
 function initSmoothScroll() {
@@ -220,7 +216,7 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// SCROLL TO TOP BUTTON
+// SCROLL TO TOP
 // ========================================
 
 function initScrollToTop() {
@@ -236,14 +232,13 @@ function initScrollToTop() {
         trackEvent('Navigation', 'Scroll_Top', 'Button');
     });
 
-    // Global (if onclick used in HTML)
     window.scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 }
 
 // ========================================
-// HERO - Stats Counter Animation
+// HERO COUNTERS
 // ========================================
 
 function initHeroCounters() {
@@ -287,14 +282,21 @@ function initHeroCounters() {
 }
 
 // ========================================
-// TYPING EFFECT - Hero Subtitle
+// TYPING EFFECT
 // ========================================
 
 function initTypingEffect() {
     const typingEl = document.getElementById('typingText');
     if (!typingEl) return;
 
-    const texts = [
+    const mobileTexts = [
+        'QA Tester',
+        'Bug Hunter 🐛',
+        'QA Engineer',
+        'Test Analyst'
+    ];
+
+    const desktopTexts = [
         'QA Manual Tester',
         'Quality Assurance Engineer',
         'Software Test Analyst',
@@ -304,9 +306,15 @@ function initTypingEffect() {
     let textIndex  = 0;
     let charIndex  = 0;
     let isDeleting = false;
+    let timeoutId  = null;
+
+    function getTexts() {
+        return window.innerWidth < 576 ? mobileTexts : desktopTexts;
+    }
 
     function type() {
-        const current = texts[textIndex];
+        const texts   = getTexts();
+        const current = texts[textIndex % texts.length];
 
         typingEl.textContent = isDeleting
             ? current.substring(0, charIndex - 1)
@@ -315,84 +323,35 @@ function initTypingEffect() {
         isDeleting ? charIndex-- : charIndex++;
 
         if (!isDeleting && charIndex === current.length) {
-            setTimeout(() => { isDeleting = true; }, 2000);
+            timeoutId = setTimeout(() => { isDeleting = true; type(); }, 2000);
+            return;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
+            textIndex  = (textIndex + 1) % texts.length;
         }
 
-        setTimeout(type, isDeleting ? 50 : 100);
-    }
-
-    type();
-}
-
-
-// ========================================
-// TYPING EFFECT - Mobile Friendly
-// ========================================
-
-function initTypingEffect() {
-    const typingEl = document.getElementById('typingText');
-    if (!typingEl) return;
-
-    // ✅ Different texts for mobile vs desktop
-    const isMobile = window.innerWidth < 576;
-
-    const texts = isMobile
-        ? [
-            'QA Tester',
-            'Bug Hunter 🐛',
-            'QA Engineer',
-            'Test Analyst'
-        ]
-        : [
-            'QA Manual Tester',
-            'Quality Assurance Engineer',
-            'Software Test Analyst',
-            'Bug Hunter 🐛'
-        ];
-
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-        const current = texts[textIndex];
-
-        typingEl.textContent = isDeleting
-            ? current.substring(0, charIndex - 1)
-            : current.substring(0, charIndex + 1);
-
-        isDeleting ? charIndex-- : charIndex++;
-
-        if (!isDeleting && charIndex === current.length) {
-            setTimeout(() => { isDeleting = true; }, 2000);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-        }
-
-        setTimeout(type, isDeleting ? 50 : 100);
+        timeoutId = setTimeout(type, isDeleting ? 50 : 100);
     }
 
     type();
 
-    // ✅ Update texts when screen resizes
-    let currentMobile = isMobile;
+    let wasMobile = window.innerWidth < 576;
+
     window.addEventListener('resize', () => {
-        const nowMobile = window.innerWidth < 576;
-        if (nowMobile !== currentMobile) {
-            currentMobile = nowMobile;
-            // Reset typing with new text set
-            textIndex = 0;
-            charIndex = 0;
+        const isMobile = window.innerWidth < 576;
+        if (isMobile !== wasMobile) {
+            wasMobile  = isMobile;
+            textIndex  = 0;
+            charIndex  = 0;
             isDeleting = false;
+            clearTimeout(timeoutId);
+            type();
         }
     });
 }
+
 // ========================================
-// SKILL PROGRESS BARS - Animate on View
+// SKILL BARS
 // ========================================
 
 function initSkillBars() {
@@ -417,7 +376,35 @@ function initSkillBars() {
 }
 
 // ========================================
-// TIMELINE - Slide in Animation
+// SKILL CARDS ANIMATION
+// ========================================
+
+function initSkillCards() {
+    const cards = document.querySelectorAll('.skill-category');
+    if (!cards.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity   = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+        card.style.opacity    = '0';
+        card.style.transform  = 'translateY(20px)';
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        observer.observe(card);
+    });
+}
+
+// ========================================
+// EXPERIENCE TIMELINE
 // ========================================
 
 function initTimeline() {
@@ -445,7 +432,7 @@ function initTimeline() {
 }
 
 // ========================================
-// ABOUT - Info Card Counter Animation
+// ABOUT COUNTERS
 // ========================================
 
 function initAboutCounters() {
@@ -496,7 +483,67 @@ function initAboutCounters() {
 }
 
 // ========================================
-// PROJECT FILTER - Show/Hide Cards
+// EDUCATION TIMELINE
+// ========================================
+
+function initEducationTimeline() {
+    const steps = document.querySelectorAll('.timeline-step');
+    if (!steps.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.querySelectorAll('.timeline-step').forEach((step, i) => {
+                    setTimeout(() => {
+                        step.style.opacity   = '1';
+                        step.style.transform = 'translateY(0)';
+                    }, i * 150);
+                });
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    steps.forEach(step => {
+        step.style.opacity    = '0';
+        step.style.transform  = 'translateY(20px)';
+        step.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+
+    const timeline = document.querySelector('.timeline-progress');
+    if (timeline) observer.observe(timeline);
+}
+
+// ========================================
+// EDUCATION CARDS
+// ========================================
+
+function initEducationCards() {
+    const cards = document.querySelectorAll('.education-card');
+    if (!cards.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity   = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 120);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+        card.style.opacity    = '0';
+        card.style.transform  = 'translateY(30px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+    });
+}
+
+// ========================================
+// PROJECT FILTER
 // ========================================
 
 function initProjectFilter() {
@@ -515,7 +562,23 @@ function initProjectFilter() {
             projectCards.forEach(card => {
                 const category = card.getAttribute('data-category') || '';
                 const show = filter === 'all' || category.includes(filter);
-                card.style.display = show ? 'flex' : 'none';
+
+                if (show) {
+                    card.style.display = 'flex';
+                    requestAnimationFrame(() => {
+                        card.style.opacity   = '1';
+                        card.style.transform = 'scale(1)';
+                    });
+                } else {
+                    card.style.opacity   = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        // ✅ FIX: Check if still hidden before removing
+                        if (card.style.opacity === '0') {
+                            card.style.display = 'none';
+                        }
+                    }, 300);
+                }
             });
 
             trackEvent('Project', 'Filter_Click', filter);
@@ -524,14 +587,76 @@ function initProjectFilter() {
 }
 
 // ========================================
-// CONTACT FORM - Web3Forms Submit
+// PROJECT CARDS ANIMATION
+// ========================================
+
+function initProjectCards() {
+    const cards = document.querySelectorAll('.project-card');
+    if (!cards.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity   = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 150);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+        card.style.opacity    = '0';
+        card.style.transform  = 'translateY(30px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+    });
+}
+
+// ========================================
+// SUMMARY CARDS
+// ========================================
+
+function initSummaryCards() {
+    const cards = document.querySelectorAll('.summary-card');
+    if (!cards.length) return;
+
+    let animated = false;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity   = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    cards.forEach(card => {
+        card.style.opacity    = '0';
+        card.style.transform  = 'translateY(20px)';
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+
+    const summary = document.querySelector('.projects-summary');
+    if (summary) observer.observe(summary);
+}
+
+// ========================================
+// CONTACT FORM
 // ========================================
 
 function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
-    // Form Submit
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -576,12 +701,20 @@ function initContactForm() {
         msgField.addEventListener('input', function() {
             const len = this.value.length;
             charEl.textContent = len + ' / 500';
-            charEl.style.color = len > 450 ? '#ef4444' : len > 300 ? '#f59e0b' : '#94a3b8';
+
+            // ✅ ENHANCED: Use CSS variables for theme-aware colors
+            if (len > 450) {
+                charEl.style.color = 'var(--danger)';
+            } else if (len > 300) {
+                charEl.style.color = 'var(--warning)';
+            } else {
+                charEl.style.color = '';
+            }
         });
     }
 }
 
-// Reset Form (called from HTML button onclick)
+// Reset Form
 window.resetForm = function() {
     const form      = document.getElementById('contactForm');
     const successEl = document.getElementById('formSuccess');
@@ -596,12 +729,15 @@ window.resetForm = function() {
 };
 
 // ========================================
-// BUTTON RIPPLE EFFECT
+// BUTTON RIPPLE
 // ========================================
 
 function initRipple() {
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function(e) {
+            // ✅ ENHANCED: Don't add ripple to submit button while loading
+            if (this.classList.contains('loading')) return;
+
             const ripple = document.createElement('span');
             const rect   = this.getBoundingClientRect();
             const size   = Math.max(rect.width, rect.height);
@@ -615,7 +751,7 @@ function initRipple() {
                 border-radius: 50%;
                 background: rgba(255, 255, 255, 0.3);
                 transform: scale(0);
-                animation: rippleAnim 0.6s ease-out;
+                animation: rippleAnim 0.6s ease-out forwards;
                 pointer-events: none;
                 z-index: 99;
             `;
@@ -624,13 +760,13 @@ function initRipple() {
             this.style.overflow = 'hidden';
             this.appendChild(ripple);
 
-            setTimeout(() => ripple.remove(), 600);
+            setTimeout(() => ripple.remove(), 700);
         });
     });
 }
 
 // ========================================
-// FADE IN - Elements on Scroll
+// FADE IN
 // ========================================
 
 function initFadeIn() {
@@ -649,7 +785,7 @@ function initFadeIn() {
 }
 
 // ========================================
-// NEWSLETTER FORM
+// NEWSLETTER
 // ========================================
 
 window.handleNewsletterSubmit = function(event) {
@@ -674,11 +810,10 @@ window.openProjectModal = function(projectId) {
 };
 
 // ========================================
-// ANALYTICS - Track User Actions
+// ANALYTICS TRACKING
 // ========================================
 
 function initTracking() {
-
     // Resume Download
     document.querySelectorAll('a[download]').forEach(link => {
         link.addEventListener('click', () => {
@@ -686,14 +821,14 @@ function initTracking() {
         });
     });
 
-    // Email clicks
+    // Email
     document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
         link.addEventListener('click', () => {
             trackEvent('Contact', 'Email_Click', link.href.replace('mailto:', ''));
         });
     });
 
-    // Phone clicks
+    // Phone
     document.querySelectorAll('a[href^="tel:"]').forEach(link => {
         link.addEventListener('click', () => {
             trackEvent('Contact', 'Phone_Click', link.href.replace('tel:', ''));
@@ -732,24 +867,27 @@ function initTracking() {
 
     document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
 
-    // Scroll Depth (25%, 50%, 75%, 100%)
+    // Scroll Depth
     let maxScroll = 0;
+
     window.addEventListener('scroll', () => {
         const total = document.body.scrollHeight - window.innerHeight;
         if (total <= 0) return;
 
         const pct = Math.round((window.scrollY / total) * 100);
+
         [25, 50, 75, 100].forEach(depth => {
             if (pct >= depth && maxScroll < depth) {
                 trackEvent('Scroll', 'Depth_' + depth, depth + '%');
             }
         });
+
         maxScroll = Math.max(maxScroll, pct);
     }, { passive: true });
 }
 
 // ========================================
-// FOOTER - Current Year
+// FOOTER YEAR
 // ========================================
 
 function initCurrentYear() {
@@ -758,31 +896,68 @@ function initCurrentYear() {
 }
 
 // ========================================
-// INITIALIZE ALL FUNCTIONS
+// ✅ NEW: RIPPLE ANIMATION CSS
+// Adds ripple keyframe if not in CSS
+// ========================================
+
+function initRippleCSS() {
+    if (document.getElementById('ripple-style')) return;
+
+    const style = document.createElement('style');
+    style.id = 'ripple-style';
+    style.textContent = `
+        @keyframes rippleAnim {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ========================================
+// INITIALIZE
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    initTheme();          // ✅ Light / Dark theme
-    initNavigation();     // ✅ Mobile hamburger menu
-    initNavbarScroll();   // ✅ Nav scroll shadow
-    initScrollSpy();      // ✅ Active link highlight
-    initSmoothScroll();   // ✅ Smooth anchor scroll
-    initScrollToTop();    // ✅ Back to top button
-    initHeroCounters();   // ✅ Hero stats animation
-    initTypingEffect();   // ✅ Typing text effect
-    initSkillBars();      // ✅ Skill bar animation
-    initTimeline();       // ✅ Timeline slide animation
-    initAboutCounters();  // ✅ About card counters
-    initProjectFilter();  // ✅ Project filter
-    initContactForm();    // ✅ Contact form + Web3Forms
-    initRipple();         // ✅ Button click ripple
-    initFadeIn();         // ✅ Scroll fade animation
-    initTracking();       // ✅ Google Analytics
-    initCurrentYear();    // ✅ Footer year
+    // Core
+    initTheme();
+    initNavigation();
+    initNavbarScroll();
+    initScrollSpy();
+    initSmoothScroll();
+    initScrollToTop();
 
-    console.log('✅ Portfolio Loaded!');
-    console.log('👤 Sanket Barot - QA Engineer');
-    console.log('📊 GA: G-T43XEEP1G7');
-    console.log('🌐 https://sanketbarot.github.io/portfolio/');
+    // Animations
+    initHeroCounters();
+    initTypingEffect();
+    initSkillBars();
+    initSkillCards();
+    initTimeline();
+    initAboutCounters();
+    initEducationCards();
+    initEducationTimeline();
+    initProjectFilter();
+    initProjectCards();
+    initSummaryCards();
+
+    // Forms
+    initContactForm();
+
+    // Effects
+    initRippleCSS();
+    initRipple();
+    initFadeIn();
+
+    // Analytics
+    initTracking();
+
+    // Footer
+    initCurrentYear();
 });

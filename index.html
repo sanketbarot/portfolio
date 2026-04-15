@@ -48,50 +48,53 @@
         
 
                                                                         <!-- Navigation -->
-                  <nav id="navbar">
-    <div class="nav-container">
-        <a href="#" class="logo">
-            Port<span>folio</span>
-        </a>
+                    <nav id="navbar">
+            <div class="nav-container">
 
-        <!-- ✅ Added id="navLinks" -->
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#hero" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+                <!-- 1. Logo (left) -->
+                <a href="#hero" class="logo">
+                    Port<span>folio</span>
+                </a>
 
-        <!-- Theme Toggle -->
-        <div class="theme-toggle-wrapper">
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-                <div class="toggle-track">
-                    <div class="toggle-icon sun">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div class="toggle-icon moon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <div class="toggle-thumb"></div>
+                <!-- 2. Nav Links (center - hidden on mobile) -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <!-- 3. Theme Toggle (right side, before hamburger) -->
+                <div class="theme-toggle-wrapper">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <div class="toggle-track">
+                            <div class="toggle-icon sun">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="toggle-icon moon">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <div class="toggle-thumb"></div>
+                        </div>
+                        <span class="toggle-label">Light</span>
+                    </button>
                 </div>
-                <span class="toggle-label">Light</span>
-            </button>
-        </div>
 
-        <!-- Hamburger -->
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-</nav>
+                <!-- 4. Hamburger (rightmost) -->
+                <button class="hamburger" id="hamburger" aria-label="Open Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-<!-- ✅ Overlay OUTSIDE nav -->
-<div class="nav-overlay" id="navOverlay"></div>
+            </div>
+        </nav>
+
+        <!-- Overlay outside nav -->
+        <div class="nav-overlay" id="navOverlay"></div>
 
 
                                                                         <!-- Hero Section -->
@@ -734,34 +737,42 @@
 
         </div>
 
-        <!-- Timeline Summary -->
-        <div class="education-timeline" data-aos="fade-up" data-aos-delay="400">
-            <div class="timeline-progress">
-                <div class="timeline-step">
-                    <div class="step-icon">🎓</div>
-                    <span>2019</span>
-                    <p>Started BSc IT</p>
-                </div>
-                <div class="timeline-line"></div>
-                <div class="timeline-step">
-                    <div class="step-icon">📚</div>
-                    <span>2022</span>
-                    <p>Graduated</p>
-                </div>
-                <div class="timeline-line"></div>
-                <div class="timeline-step">
-                    <div class="step-icon">💼</div>
-                    <span>2022</span>
-                    <p>Started QA Career</p>
-                </div>
-                <div class="timeline-line"></div>
-                <div class="timeline-step active">
-                    <div class="step-icon">🚀</div>
-                    <span>2024</span>
-                    <p>Present</p>
+        <!-- Education Timeline -->
+            <div class="education-timeline">
+                <div class="timeline-progress">
+
+                    <!-- ✅ ADD THIS WRAPPER DIV -->
+                    <div class="timeline-progress-inner">
+
+                        <div class="timeline-step">
+                            <div class="step-icon">🎓</div>
+                            <span>2019</span>
+                            <p>Started BSc IT</p>
+                        </div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-step">
+                            <div class="step-icon">📚</div>
+                            <span>2022</span>
+                            <p>Graduated</p>
+                        </div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-step">
+                            <div class="step-icon">💼</div>
+                            <span>2023</span>
+                            <p>Started QA Career</p>
+                        </div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-step active">
+                            <div class="step-icon">🚀</div>
+                            <span>2026</span>
+                            <p>Present</p>
+                        </div>
+
+                    </div>
+                    <!-- END inner wrapper -->
+
                 </div>
             </div>
-        </div>
     </div>
 </section>
 
