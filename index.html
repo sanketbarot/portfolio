@@ -2,9 +2,11 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ✅ Theme flash prevention - runs before CSS -->
+    <!-- ✅ THIS IS MOST IMPORTANT - Must be first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <!-- Theme flash prevention -->
     <script>
         (function() {
             var saved = localStorage.getItem('theme');
@@ -13,7 +15,7 @@
         })();
     </script>
 
-    <!-- ✅ Theme color for mobile browser bar -->
+ <!-- ✅ Theme color for mobile browser bar -->
     <meta name="theme-color" content="#f1f5f9" id="metaThemeColor">
 
     <!-- Google Analytics -->
@@ -53,17 +55,19 @@
     <link rel="apple-touch-icon" href="favicon.png">
 
     <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
+         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <title>Sanket Brahmbhatt - QA Manual Tester | Portfolio</title>
 
-    <!-- CSS - style.css first, then responsive -->
+    <!-- ✅ CSS ORDER MATTERS - style.css FIRST, responsive.css SECOND -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
-    <!-- ✅ More font weights for better typography -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
