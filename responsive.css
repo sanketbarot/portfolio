@@ -1181,6 +1181,4 @@
     outline-offset: 3px;
 }
 
-*:focus:not(:focus-visible) {
-    outline: none;
-}
+*:focus:not(:focus-visible) { outline: none; }
