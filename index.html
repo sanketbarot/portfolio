@@ -1,1377 +1,1414 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
+    <!-- ====================================================
+         BASIC META
+         ==================================================== -->
     <meta charset="UTF-8">
-
-    <!-- ✅ THIS IS MOST IMPORTANT - Must be first -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#ffb088">
+    <meta name="color-scheme" content="light">
 
-    <!-- Theme flash prevention -->
-    <script>
-        (function() {
-            var saved = localStorage.getItem('theme');
-            var preferred = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', preferred);
-        })();
+    <!-- ====================================================
+         PRIMARY SEO
+         ==================================================== -->
+    <title>Sanket Brahmbhatt - QA Manual Tester | Bug Hunter | Portfolio</title>
+    <meta name="title" content="Sanket Brahmbhatt - QA Manual Tester | Bug Hunter | Portfolio">
+    <meta name="description" content="Sanket Brahmbhatt - Experienced QA Manual Tester from Ahmedabad with 2+ years expertise in Web, Mobile & API Testing. 500+ bugs found, 1000+ test cases written. Available for hire!">
+    <meta name="keywords" content="Sanket Brahmbhatt, QA Tester, Manual Tester, Software Tester, QA Engineer Ahmedabad, Bug Hunter, API Testing, Mobile Testing, Postman, Jira, Selenium, Test Automation, Quality Assurance, Web Testing, Software Testing India">
+    <meta name="author" content="Sanket Brahmbhatt">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+
+    <!-- ====================================================
+         CANONICAL URL
+         ==================================================== -->
+    <link rel="canonical" href="https://sanket.aitoolcor.com/">
+
+    <!-- ====================================================
+         OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+         ==================================================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanket.aitoolcor.com/">
+    <meta property="og:title" content="Sanket Brahmbhatt - QA Manual Tester | Bug Hunter">
+    <meta property="og:description" content="Experienced QA Manual Tester with 2+ years in Web, Mobile & API Testing. 500+ bugs found across E-learning, Telecom & Forex domains. Let's build bug-free software together!">
+    <meta property="og:image" content="https://sanket.aitoolcor.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Sanket Brahmbhatt - QA Manual Tester Portfolio">
+    <meta property="og:site_name" content="Sanket Brahmbhatt Portfolio">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ====================================================
+         TWITTER CARD
+         ==================================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sanket.aitoolcor.com/">
+    <meta name="twitter:title" content="Sanket Brahmbhatt - QA Manual Tester | Bug Hunter">
+    <meta name="twitter:description" content="2+ years QA expertise. 500+ bugs found. Web, Mobile & API testing specialist from Ahmedabad, India.">
+    <meta name="twitter:image" content="https://sanket.aitoolcor.com/assets/og-image.jpg">
+    <meta name="twitter:image:alt" content="Sanket Brahmbhatt - QA Tester">
+
+    <!-- ====================================================
+         FAVICONS (place files in /assets/favicon/)
+         ==================================================== -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#ffb088">
+
+    <!-- ====================================================
+         GEO TAGS (Local SEO - Ahmedabad)
+         ==================================================== -->
+    <meta name="geo.region" content="IN-GJ">
+    <meta name="geo.placename" content="Ahmedabad, Gujarat, India">
+    <meta name="geo.position" content="23.0225;72.5714">
+    <meta name="ICBM" content="23.0225, 72.5714">
+
+    <!-- ====================================================
+         STRUCTURED DATA (Schema.org JSON-LD for Google)
+         ==================================================== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sanket Brahmbhatt",
+        "url": "https://sanket.aitoolcor.com",
+        "image": "https://sanket.aitoolcor.com/assets/og-image.jpg",
+        "jobTitle": "QA Manual Tester",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "PhiBonacci Solutions Pvt. Ltd."
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Indus University"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ahmedabad",
+            "addressRegion": "Gujarat",
+            "addressCountry": "India"
+        },
+        "email": "sanketbarot3901@gmail.com",
+        "telephone": "+91-7487980840",
+        "sameAs": [
+            "https://www.linkedin.com/in/sanket-brahmbhatt-03705b227/",
+            "https://github.com/sanketbarot",
+            "https://wa.me/917487980840"
+        ],
+        "knowsAbout": [
+            "Manual Testing",
+            "API Testing",
+            "Mobile Testing",
+            "Web Testing",
+            "Regression Testing",
+            "UAT Testing",
+            "Postman",
+            "Jira",
+            "Selenium",
+            "Quality Assurance"
+        ],
+        "description": "Experienced QA Manual Tester with 2+ years of expertise in Web, Mobile, and API Testing across E-learning, Telecom, and Forex Trading domains."
+    }
     </script>
 
- <!-- ✅ Theme color for mobile browser bar -->
-    <meta name="theme-color" content="#f1f5f9" id="metaThemeColor">
+    <!-- ====================================================
+         PRECONNECTS & PERFORMANCE
+         ==================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://api.web3forms.com">
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T43XEEP1G7"></script>
+    <!-- ====================================================
+         FONTS
+         ==================================================== -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- ====================================================
+         ICONS
+         ==================================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ====================================================
+         STYLES
+         ==================================================== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+
+    <!-- ====================================================
+         GOOGLE ANALYTICS (replace G-XXXXX with your ID)
+         ==================================================== -->
+    <!-- Uncomment after you set up Google Analytics
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-T43XEEP1G7');
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
-
-    <!-- SEO -->
-    <meta name="description" content="Sanket Brahmbhatt - QA Manual Tester with 2+ years of experience in E-learning, Telecom, and Forex domains.">
-    <meta name="keywords" content="QA Tester, Manual Testing, Software Testing, API Testing, Sanket Brahmbhatt, Quality Assurance, Ahmedabad">
-    <meta name="author" content="Sanket Brahmbhatt">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Sanket Brahmbhatt - QA Manual Tester Portfolio">
-    <meta property="og:description" content="2+ years experienced QA Tester specializing in Manual & API Testing">
-    <meta property="og:url" content="https://sanketbarot.github.io/portfolio/">
-    <meta property="og:type" content="website">
-    <!-- ✅ Added OG image -->
-    <meta property="og:image" content="https://sanketbarot.github.io/portfolio/assets/og-image.png">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sanket Brahmbhatt - QA Manual Tester">
-    <meta name="twitter:description" content="2+ years QA Tester | Manual Testing | API Testing">
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://sanketbarot.github.io/portfolio/">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <!-- ✅ Apple touch icon -->
-    <link rel="apple-touch-icon" href="favicon.png">
-
-    <!-- Preconnect -->
-         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <title>Sanket Brahmbhatt - QA Manual Tester | Portfolio</title>
-
-    <!-- ✅ CSS ORDER MATTERS - style.css FIRST, responsive.css SECOND -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    -->
 </head>
-
 <body>
 
-    <!-- ========================================
-         NAVIGATION
-         ======================================== -->
-    <nav id="navbar">
-        <div class="nav-container">
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">⚡</div>
+            <div class="loader-text">SANKET</div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
 
-            <!-- Logo -->
-            <a href="#hero" class="logo" aria-label="Home">
-                Port<span>folio</span>
-            </a>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
-            <!-- Nav Links -->
-            <ul class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
-                <li><a href="#hero" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-            <!-- Theme Toggle -->
-            <div class="theme-toggle-wrapper">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
-                    <div class="toggle-track">
-                        <div class="toggle-icon sun" aria-hidden="true">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div class="toggle-icon moon" aria-hidden="true">
-                            <i class="fas fa-moon"></i>
-                        </div>
-                        <div class="toggle-thumb"></div>
-                    </div>
-                    <span class="toggle-label">Light</span>
-                </button>
+    <!-- Background -->
+    <div class="bg-scene">
+        <div class="bg-orb orb-peach"></div>
+        <div class="bg-orb orb-lavender"></div>
+        <div class="bg-orb orb-mint"></div>
+        <div class="bg-orb orb-pink"></div>
+        <div class="bg-dots"></div>
+    </div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+        <!-- Top Mini Bar -->
+        <div class="nav-top-bar">
+            <div class="nav-info-left">
+                <span class="info-pill">
+                    <span class="status-dot-mini"></span>
+                    <strong>Open to opportunities</strong>
+                </span>
+                <span class="info-pill info-hidden-mobile">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Ahmedabad, IN
+                </span>
+                <span class="info-pill info-hidden-mobile">
+                    <i class="fa-solid fa-clock"></i>
+                    <span id="liveTime">--:--</span>
+                </span>
             </div>
+            <div class="nav-info-right">
+                <a href="mailto:sanketbarot3901@gmail.com" class="info-pill info-link">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span class="info-hidden-mobile">sanketbarot3901@gmail.com</span>
+                </a>
+                <a href="tel:+917487980840" class="info-pill info-link info-hidden-mobile">
+                    <i class="fa-solid fa-phone"></i>
+                    +91 7487980840
+                </a>
+            </div>
+        </div>
 
-            <!-- Hamburger -->
-            <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
-                <span></span>
-                <span></span>
-                <span></span>
+        <!-- Main Navbar -->
+        <div class="nav-pill">
+            <a href="#home" class="nav-brand">
+                <span class="brand-emoji">⚡</span>
+                <div class="brand-text">
+                    <strong>Sanket</strong>
+                    <small>QA Engineer • 3+ yrs</small>
+                </div>
+            </a>
+            <div class="nav-divider"></div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+                <li><a href="#about" class="nav-link"><i class="fa-solid fa-user"></i><span>About</span></a></li>
+                <li><a href="#skills" class="nav-link"><i class="fa-solid fa-bolt"></i><span>Skills</span></a></li>
+                <li><a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a></li>
+                <li><a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i><span>Education</span></a></li>
+                <li><a href="#projects" class="nav-link"><i class="fa-solid fa-folder"></i><span>Projects</span></a></li>
+                <li><a href="#contact" class="nav-link"><i class="fa-solid fa-comment"></i><span>Contact</span></a></li>
+            </ul>
+            <div class="nav-divider"></div>
+            <div class="nav-actions">
+                <button class="nav-icon-btn" id="searchBtn" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <a href="assets/resume/Sanket_Resume.pdf" download="Sanket_Brahmbhatt_Resume.pdf" class="nav-cta">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Resume</span>
+                    <div class="cta-shine"></div>
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span>
             </button>
-
         </div>
     </nav>
 
-    <!-- Overlay -->
-    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+    <main class="main-container">
 
-    <!-- ========================================
-         HERO SECTION
-         ======================================== -->
-    <section class="hero" id="hero" aria-label="Introduction">
-        <!-- Floating shapes decoration -->
-        <div class="floating-shapes" aria-hidden="true">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-
-        <div class="hero-container">
-            <div class="hero-content">
-                <p class="greeting">
-                    <span class="wave" role="img" aria-label="Wave">👋</span>
-                    Welcome to my portfolio
-                </p>
-                <h1>Hello, I'm <span class="gradient-text">Sanket Brahmbhatt</span></h1>
-                <p class="subtitle" aria-live="polite">
-                    <span class="typing-text" id="typingText">QA Manual Tester</span>
-                    <span class="cursor" aria-hidden="true">|</span>
-                </p>
-                <p class="description">
-                    With <strong>2+ years</strong> of experience in E-learning, Telecom, and Forex Trading domains.
-                    Skilled in identifying defects, improving product quality, and delivering reliable applications.
-                </p>
-                <div class="availability-badge" role="status">
-                    <span class="pulse-dot" aria-hidden="true"></span>
-                    <span>Available for Immediate Joining</span>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-                        <span>Hire Me</span>
-                    </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
-                        <span>View Projects</span>
-                    </a>
-                    <a href="assets/resume/Sanket_Resume.pdf"
-                       download="Sanket_Brahmbhatt_Resume.pdf"
-                       class="btn btn-secondary">
-                        <i class="fa-solid fa-download" aria-hidden="true"></i>
-                        <span>Download CV</span>
-                    </a>
-                </div>
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="home">
+            <div class="sticky-note note-1">
+                <span class="note-pin">📌</span>
+                <p class="caveat">Currently testing<br>5 web apps! 🚀</p>
             </div>
-
-            <!-- Hero Stats -->
-            <div class="hero-stats" aria-label="Key statistics">
-                <div class="stat-card">
-                    <div class="stat-icon" aria-hidden="true">📅</div>
-                    <div class="number" data-count="2">0</div>
-                    <div class="label">Years Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon" aria-hidden="true">🐛</div>
-                    <div class="number" data-count="500">0</div>
-                    <div class="label">Bugs Reported</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon" aria-hidden="true">📝</div>
-                    <div class="number" data-count="1000">0</div>
-                    <div class="label">Test Cases Written</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon" aria-hidden="true">🚀</div>
-                    <div class="number" data-count="10">0</div>
-                    <div class="label">Releases Tested</div>
-                </div>
+            <div class="sticky-note note-2">
+                <span class="note-pin">⭐</span>
+                <p class="caveat">3+ years of<br>bug hunting!</p>
             </div>
-        </div>
-    </section>
-
-    <!-- ========================================
-         ABOUT SECTION
-         ======================================== -->
-    <section class="about" id="about" aria-label="About me">
-        <div class="about-container">
-            <div class="section-title">
-                <span class="section-subtitle">Get To Know</span>
-                <h2>About Me</h2>
-                <div class="underline"></div>
-            </div>
-
-            <div class="about-wrapper">
-                <!-- Profile Image -->
-                <div class="about-image">
-                    <div class="profile-wrapper">
-                        <div class="profile-box">
-                            <span class="profile-emoji" role="img" aria-label="Developer emoji">🧑‍💻</span>
-                            <!-- Real photo: uncomment when ready
-                            <img src="assets/images/sanket-photo.jpg" alt="Sanket Brahmbhatt - QA Engineer" loading="lazy">
-                            -->
+            
+            <div class="hero-main">
+                <div class="hero-text-side">
+                    <div class="hero-tag-line">
+                        <span class="emoji-burst">🎯</span>
+                        <span class="caveat hero-handwritten">Hi there, I'm</span>
+                    </div>
+                    <h1 class="mega-title">
+                        <span class="title-line">Sanket</span>
+                        <span class="title-line title-shaped">Brahmbhatt</span>
+                    </h1>
+                    <div class="role-marquee">
+                        <div class="role-track">
+                            <span>QA Manual Tester</span><span class="role-sep">✦</span>
+                            <span>Bug Hunter 🐛</span><span class="role-sep">✦</span>
+                            <span>Quality Engineer</span><span class="role-sep">✦</span>
+                            <span>API Specialist</span><span class="role-sep">✦</span>
+                            <span>QA Manual Tester</span><span class="role-sep">✦</span>
+                            <span>Bug Hunter 🐛</span><span class="role-sep">✦</span>
+                            <span>Quality Engineer</span><span class="role-sep">✦</span>
+                            <span>API Specialist</span><span class="role-sep">✦</span>
                         </div>
-                        <div class="profile-decoration" aria-hidden="true"></div>
-                        <div class="profile-dots" aria-hidden="true"></div>
                     </div>
-                    <div class="experience-badge" aria-label="2+ years experience">
-                        <span class="exp-number">2+</span>
-                        <span class="exp-text">Years<br>Experience</span>
-                    </div>
-                </div>
-
-                <!-- About Content -->
-                <div class="about-content">
-                    <h3>Hi, I'm <span class="name-highlight">Sanket Brahmbhatt</span></h3>
-                    <p class="intro-text">
-                        A dedicated <strong>QA Manual Tester</strong> with 2+ years of experience in Software Quality Assurance across E-learning, Telecom, and Forex Trading domains.
+                    <p class="hero-desc">
+                        I help companies ship <span class="highlight-yellow">bug-free software</span> with my 
+                        <span class="highlight-pink">3+ years</span> of QA testing expertise across web, mobile, and API platforms.
                     </p>
-                    <p class="description-text">
-                        I specialize in identifying critical defects, ensuring application stability, and delivering bug-free user experiences. Skilled in Functional, Regression, UI, API Testing with strong SDLC/STLC knowledge.
-                    </p>
-
-                    <!-- Info Cards -->
-                    <div class="about-info-cards">
-                        <div class="info-card">
-                            <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
-                            <div>
-                                <strong>Experience</strong>
-                                <span>2+ Years</span>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <i class="fa-solid fa-bug" aria-hidden="true"></i>
-                            <div>
-                                <strong>Bugs Found</strong>
-                                <span>500+</span>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
-                            <div>
-                                <strong>Test Cases</strong>
-                                <span>1000+</span>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <i class="fa-solid fa-rocket" aria-hidden="true"></i>
-                            <div>
-                                <strong>Projects</strong>
-                                <span>3+</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlights -->
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                            <span>Web & Mobile Testing</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                            <span>API Testing (Postman)</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                            <span>SDLC & STLC Expert</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                            <span>Agile/Scrum Methodology</span>
-                        </div>
-                    </div>
-
-                    <!-- Domain Tags -->
-                    <div class="domain-tags">
-                        <span class="domain-tag">
-                            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> E-Learning
-                        </span>
-                        <span class="domain-tag">
-                            <i class="fa-solid fa-tower-cell" aria-hidden="true"></i> Telecom
-                        </span>
-                        <span class="domain-tag">
-                            <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Forex Trading
-                        </span>
-                    </div>
-
-                    <!-- Buttons -->
-                    <div class="about-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn-3d btn-primary-3d">
                             <span>Let's Talk</span>
+                            <i class="fa-solid fa-arrow-right"></i>
                         </a>
-                        <a href="assets/resume/Sanket_Resume.pdf"
-                           download="Sanket_Brahmbhatt_Resume.pdf"
-                           class="btn btn-secondary">
-                            <i class="fa-solid fa-download" aria-hidden="true"></i>
-                            <span>Download CV</span>
+                        <a href="assets/resume/Sanket_Resume.pdf" download="Sanket_Brahmbhatt_Resume.pdf" class="btn-3d btn-ghost-3d">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Resume</span>
                         </a>
                     </div>
+                    <div class="tools-row">
+                        <span class="tools-label">My toolkit:</span>
+                        <div class="tools-icons">
+                            <div class="tool-icon" title="Jira"><i class="fa-brands fa-jira"></i></div>
+                            <div class="tool-icon" title="Postman"><i class="fa-solid fa-paper-plane"></i></div>
+                            <div class="tool-icon" title="MySQL"><i class="fa-solid fa-database"></i></div>
+                            <div class="tool-icon" title="Chrome"><i class="fa-brands fa-chrome"></i></div>
+                            <div class="tool-icon" title="GitHub"><i class="fa-brands fa-github"></i></div>
+                            <div class="tool-icon" title="Android"><i class="fa-brands fa-android"></i></div>
+                            <div class="tool-icon" title="iOS"><i class="fa-brands fa-apple"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual-side">
+                    <div class="avatar-orbit">
+                        <div class="orbit-ring ring-1"></div>
+                        <div class="orbit-ring ring-2"></div>
+                        <div class="avatar-circle">
+                            <span class="avatar-emoji">🧑‍💻</span>
+                            <div class="status-dot-big"></div>
+                        </div>
+                        <div class="orbit-item orbit-bug">🐛</div>
+                        <div class="orbit-item orbit-check">✅</div>
+                        <div class="orbit-item orbit-rocket">🚀</div>
+                        <div class="orbit-item orbit-fire">🔥</div>
+                    </div>
+                    <div class="stat-bubble bubble-1"><h3 data-count="500">0</h3><p>Bugs Found</p></div>
+                    <div class="stat-bubble bubble-2"><h3 data-count="1000">0</h3><p>Test Cases</p></div>
+                    <div class="stat-bubble bubble-3"><h3 data-count="3">0</h3><p>Projects</p></div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ========================================
-         SKILLS SECTION
-         ======================================== -->
-    <section class="skills" id="skills" aria-label="Skills and expertise">
-        <div class="skills-container">
-            <div class="section-title">
-                <span class="section-subtitle">What I Know</span>
-                <h2>Skills & Expertise</h2>
-                <div class="underline"></div>
-                <p class="section-description">
-                    Hands-on experience in Manual Testing, API Testing, and Real-Time Project Testing across multiple domains.
-                </p>
-            </div>
-
-            <div class="skills-grid">
-                <!-- Tools & Platforms -->
-                <div class="skill-category">
-                    <div class="category-icon" aria-hidden="true">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
+            <!-- Hero Bottom Widgets -->
+            <div class="hero-widgets">
+                <!-- Terminal Card -->
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="terminal-title">sanket@qa-tester ~ </span>
                     </div>
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag"><i class="fa-solid fa-bug" aria-hidden="true"></i> Jira</span>
-                        <span class="skill-tag"><i class="fa-solid fa-check-double" aria-hidden="true"></i> ClickUp</span>
-                        <span class="skill-tag"><i class="fa-solid fa-file-code" aria-hidden="true"></i> Swagger</span>
-                        <span class="skill-tag"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Postman</span>
-                        <span class="skill-tag"><i class="fa-brands fa-chrome" aria-hidden="true"></i> DevTools</span>
-                        <span class="skill-tag"><i class="fa-solid fa-database" aria-hidden="true"></i> MySQL</span>
+                    <div class="terminal-body">
+                        <p class="t-line"><span class="t-prompt">$</span> whoami</p>
+                        <p class="t-out">Sanket Brahmbhatt - QA Engineer</p>
+                        <p class="t-line"><span class="t-prompt">$</span> status</p>
+                        <p class="t-out t-green">✓ Available for new projects</p>
+                        <p class="t-line"><span class="t-prompt">$</span> bugs_found</p>
+                        <p class="t-out t-orange">500+ critical bugs squashed 🐛</p>
+                        <p class="t-line t-blink"><span class="t-prompt">$</span> <span class="t-cursor">_</span></p>
                     </div>
                 </div>
 
-                <!-- Testing Types -->
-                <div class="skill-category">
-                    <div class="category-icon" aria-hidden="true">
-                        <i class="fa-solid fa-flask-vial"></i>
-                    </div>
-                    <h3>Testing Types</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag"><i class="fa-solid fa-vial" aria-hidden="true"></i> Functional</span>
-                        <span class="skill-tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Regression</span>
-                        <span class="skill-tag"><i class="fa-solid fa-server" aria-hidden="true"></i> API Testing</span>
-                        <span class="skill-tag"><i class="fa-solid fa-database" aria-hidden="true"></i> Database</span>
-                        <span class="skill-tag"><i class="fa-brands fa-firefox" aria-hidden="true"></i> Cross Browser</span>
-                        <span class="skill-tag"><i class="fa-solid fa-shuffle" aria-hidden="true"></i> Adhoc</span>
-                        <span class="skill-tag"><i class="fa-solid fa-fire" aria-hidden="true"></i> Smoke</span>
-                        <span class="skill-tag"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Sanity</span>
-                    </div>
-                </div>
-
-                <!-- Core QA Skills -->
-                <div class="skill-category">
-                    <div class="category-icon" aria-hidden="true">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <h3>Core QA Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag"><i class="fa-solid fa-pen" aria-hidden="true"></i> Test Case Writing</span>
-                        <span class="skill-tag"><i class="fa-solid fa-bug" aria-hidden="true"></i> Bug Reporting</span>
-                        <span class="skill-tag"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Requirement Analysis</span>
-                        <span class="skill-tag"><i class="fa-solid fa-list" aria-hidden="true"></i> Test Scenarios</span>
-                        <span class="skill-tag"><i class="fa-solid fa-arrows-spin" aria-hidden="true"></i> Defect Lifecycle</span>
-                        <span class="skill-tag"><i class="fa-solid fa-table" aria-hidden="true"></i> RTM</span>
-                    </div>
-                </div>
-
-                <!-- Methodologies -->
-                <div class="skill-category">
-                    <div class="category-icon" aria-hidden="true">
-                        <i class="fa-solid fa-diagram-project"></i>
-                    </div>
-                    <h3>Methodologies</h3>
-                    <div class="skill-bars">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">
-                                    <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Agile / Scrum
-                                </span>
-                                <span class="skill-percent">90%</span>
-                            </div>
-                            <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Agile/Scrum proficiency 90%">
-                                <div class="skill-progress" data-progress="90"></div>
-                            </div>
+                <!-- Quick Stats Highlight -->
+                <div class="hero-highlight">
+                    <div class="highlight-badge">⚡ Power Stats</div>
+                    <div class="highlight-grid">
+                        <div class="hl-item">
+                            <span class="hl-emoji">🎯</span>
+                            <strong>98%</strong>
+                            <small>Bug Detection Rate</small>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">
-                                    <i class="fa-solid fa-water" aria-hidden="true"></i> Waterfall
-                                </span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Waterfall proficiency 85%">
-                                <div class="skill-progress" data-progress="85"></div>
-                            </div>
+                        <div class="hl-item">
+                            <span class="hl-emoji">⚡</span>
+                            <strong>24h</strong>
+                            <small>Response Time</small>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">
-                                    <i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> SDLC & STLC
-                                </span>
-                                <span class="skill-percent">95%</span>
-                            </div>
-                            <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="SDLC and STLC proficiency 95%">
-                                <div class="skill-progress" data-progress="95"></div>
-                            </div>
+                        <div class="hl-item">
+                            <span class="hl-emoji">🏆</span>
+                            <strong>100%</strong>
+                            <small>Client Satisfaction</small>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Platforms -->
-                <div class="skill-category">
-                    <div class="category-icon" aria-hidden="true">
-                        <i class="fa-solid fa-display"></i>
-                    </div>
-                    <h3>Platforms</h3>
-                    <div class="skill-bars">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">
-                                    <i class="fa-solid fa-globe" aria-hidden="true"></i> Web Applications
-                                </span>
-                                <span class="skill-percent">95%</span>
-                            </div>
-                            <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Web testing proficiency 95%">
-                                <div class="skill-progress" data-progress="95"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">
-                                    <i class="fa-brands fa-android" aria-hidden="true"></i> Android Apps
-                                </span>
-                                <span class="skill-percent">88%</span>
-                            </div>
-                            <div class="skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Android testing proficiency 88%">
-                                <div class="skill-progress" data-progress="88"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">
-                                    <i class="fa-brands fa-apple" aria-hidden="true"></i> iOS Apps
-                                </span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="iOS testing proficiency 85%">
-                                <div class="skill-progress" data-progress="85"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Soft Skills -->
-                <div class="skill-category">
-                    <div class="category-icon" aria-hidden="true">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                    <h3>Soft Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag"><i class="fa-solid fa-comments" aria-hidden="true"></i> Communication</span>
-                        <span class="skill-tag"><i class="fa-solid fa-users" aria-hidden="true"></i> Team Work</span>
-                        <span class="skill-tag"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Problem Solving</span>
-                        <span class="skill-tag"><i class="fa-solid fa-eye" aria-hidden="true"></i> Attention to Detail</span>
-                        <span class="skill-tag"><i class="fa-solid fa-clock" aria-hidden="true"></i> Time Management</span>
-                        <span class="skill-tag"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Quick Learner</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ========================================
-         EXPERIENCE SECTION
-         ======================================== -->
-    <section class="experience" id="experience" aria-label="Work experience">
-        <div class="experience-container">
-            <div class="section-title">
-                <span class="section-subtitle">My Journey</span>
-                <h2>Work Experience</h2>
-                <div class="underline"></div>
+            <div class="scroll-hint">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section class="section-block" id="about">
+            <div class="section-header-creative">
+                <span class="section-num">01</span>
+                <div class="section-title-box">
+                    <span class="section-tag-new">About Me</span>
+                    <h2>The <span class="curve-underline">person</span> behind the code</h2>
+                </div>
+                <div class="section-deco">✦</div>
             </div>
 
-            <div class="timeline">
-                <!-- Job 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot" aria-hidden="true">
-                        <i class="fa-solid fa-briefcase"></i>
+            <!-- ID Card Section -->
+            <div class="about-id-section">
+                <!-- Left: ID Card -->
+                <div class="id-card">
+                    <div class="id-card-header">
+                        <span class="id-org">QA ENGINEER ID</span>
+                        <span class="id-num">#2023</span>
                     </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">
-                            <span class="date-badge current">
-                                <i class="fa-solid fa-calendar" aria-hidden="true"></i> June 2023 – Present
-                            </span>
-                            <span class="duration">2+ Years</span>
+                    <div class="id-card-body">
+                        <div class="id-photo">
+                            <span>🧑‍💻</span>
+                            <div class="photo-frame-corner"></div>
                         </div>
-                        <div class="timeline-card">
-                            <div class="card-header">
-                                <div class="company-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-building"></i>
+                        <div class="id-info">
+                            <h3>Sanket Brahmbhatt</h3>
+                            <p class="id-role">QA Manual Tester</p>
+                            <div class="id-data">
+                                <div class="id-row">
+                                    <span class="id-label">DOB</span>
+                                    <strong>Available on request</strong>
                                 </div>
-                                <div class="job-info">
-                                    <h4 class="job-title">Quality Assurance Tester</h4>
-                                    <p class="company-name">
-                                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                                        PhiBonacci Solutions Pvt. Ltd. – Ahmedabad
-                                    </p>
+                                <div class="id-row">
+                                    <span class="id-label">LOC</span>
+                                    <strong>Ahmedabad, India</strong>
                                 </div>
-                                <span class="job-badge">Full-time</span>
-                            </div>
-                            <div class="card-body">
-                                <ul class="responsibilities">
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Strong understanding of SDLC, STLC, Agile & Waterfall methodologies</li>
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Performed testing on web and mobile applications (iOS & Android)</li>
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Designed and executed test plans and test cases based on requirements</li>
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Performed Functional, Regression, Smoke, UAT, UI & System testing</li>
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Collaborated with developers to identify and resolve defects using Jira</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <span class="tech-tag">Jira</span>
-                                    <span class="tech-tag">Postman</span>
-                                    <span class="tech-tag">Swagger</span>
-                                    <span class="tech-tag">Manual Testing</span>
-                                    <span class="tech-tag">API Testing</span>
+                                <div class="id-row">
+                                    <span class="id-label">EXP</span>
+                                    <strong>3+ Years</strong>
+                                </div>
+                                <div class="id-row">
+                                    <span class="id-label">LANG</span>
+                                    <strong>EN, HI, GU</strong>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Job 2 - Internship -->
-                <div class="timeline-item">
-                    <div class="timeline-dot internship" aria-hidden="true">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">
-                            <span class="date-badge">
-                                <i class="fa-solid fa-calendar" aria-hidden="true"></i> Nov 2022 – May 2023
-                            </span>
-                            <span class="duration">7 Months</span>
-                        </div>
-                        <div class="timeline-card">
-                            <div class="card-header">
-                                <div class="company-icon internship" aria-hidden="true">
-                                    <i class="fa-solid fa-laptop-code"></i>
-                                </div>
-                                <div class="job-info">
-                                    <h4 class="job-title">QA Manual Tester</h4>
-                                    <p class="company-name">
-                                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                                        i2iCore Technologies – Ahmedabad
-                                    </p>
-                                </div>
-                                <span class="job-badge internship">Internship</span>
-                            </div>
-                            <div class="card-body">
-                                <ul class="responsibilities">
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Identified and reported <strong>500+ defects</strong>, including critical issues</li>
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Assisted in test case execution and defect analysis</li>
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Participated in test planning and execution phases</li>
-                                    <li><i class="fa-solid fa-check" aria-hidden="true"></i> Collaborated with team to improve application quality</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <span class="tech-tag">Test Cases</span>
-                                    <span class="tech-tag">Bug Reporting</span>
-                                    <span class="tech-tag">SDLC</span>
-                                    <span class="tech-tag">Manual Testing</span>
-                                </div>
-                            </div>
-                            <div class="achievement">
-                                <i class="fa-solid fa-trophy" aria-hidden="true"></i>
-                                <span>500+ Bugs Identified</span>
-                            </div>
-                        </div>
+                    <div class="id-card-footer">
+                        <span class="id-barcode">|||| |||  || ||||  | ||</span>
+                        <span class="id-issued">Issued: 2023</span>
                     </div>
                 </div>
 
-                <!-- Timeline End -->
-                <div class="timeline-end">
-                    <div class="timeline-dot end" aria-hidden="true">
-                        <i class="fa-solid fa-rocket"></i>
-                    </div>
-                    <span class="journey-text">Career Started - 2022</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================
-         EDUCATION SECTION
-         ======================================== -->
-    <section class="education" id="education" aria-label="Education and certifications">
-        <div class="education-container">
-            <div class="section-title">
-                <span class="section-subtitle">Academic Background</span>
-                <h2>Education</h2>
-                <div class="underline"></div>
-            </div>
-
-            <div class="education-grid">
-                <!-- Bachelor's -->
-                <div class="education-card card-bachelor">
-                    <div class="card-ribbon ribbon-bachelor"><span>Bachelor's</span></div>
-                    <div class="degree-icon icon-bachelor">
-                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>BSc in Information Technology</h3>
-                        <p class="institute">
-                            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
-                            Indus University – Ahmedabad
+                <!-- Right: Story + Personality -->
+                <div class="about-story-wrap">
+                    <div class="story-quote">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <p class="caveat">
+                            Quality isn't an act, it's a <span class="highlight-yellow">habit</span>!
                         </p>
-                        <p class="year">
-                            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
-                            2019 – 2022
+                    </div>
+
+                    <div class="about-story-text">
+                        <h3>Hey there! I'm <span class="title-accent">Sanket</span> 👋</h3>
+                        <p>
+                            A passionate <strong>QA Manual Tester</strong> from Ahmedabad with <strong>3+ years</strong> 
+                            of hands-on experience. I specialize in finding bugs before users do!
                         </p>
-                        <div class="grade-info">
-                            <div class="grade-badge badge-bachelor">
-                                <span class="grade-label">CGPA</span>
-                                <span class="grade-value">7.5/10</span>
-                            </div>
-                            <div class="duration">
-                                <i class="fa-solid fa-clock" aria-hidden="true"></i> 3 Years
-                            </div>
+                        <p>
+                            I've worked across <strong>E-learning, Telecom, and Forex Trading</strong> domains, 
+                            testing both web and mobile applications.
+                        </p>
+                    </div>
+
+                    <div class="personality-tags">
+                        <span class="ptag">🎯 Detail-oriented</span>
+                        <span class="ptag">⚡ Quick Learner</span>
+                        <span class="ptag">🤝 Team Player</span>
+                        <span class="ptag">🐛 Bug Hunter</span>
+                        <span class="ptag">📊 Analytical</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fun Facts Grid -->
+            <div class="fun-facts-bar">
+                <div class="fact-pill">
+                    <span class="fact-emoji">☕</span>
+                    <div>
+                        <strong>∞ Coffees</strong>
+                        <small>Per day</small>
+                    </div>
+                </div>
+                <div class="fact-pill">
+                    <span class="fact-emoji">🌙</span>
+                    <div>
+                        <strong>Night Owl</strong>
+                        <small>Best work after 10PM</small>
+                    </div>
+                </div>
+                <div class="fact-pill">
+                    <span class="fact-emoji">🎮</span>
+                    <div>
+                        <strong>Gamer</strong>
+                        <small>Stress reliever</small>
+                    </div>
+                </div>
+                <div class="fact-pill">
+                    <span class="fact-emoji">📚</span>
+                    <div>
+                        <strong>Always Learning</strong>
+                        <small>Tech enthusiast</small>
+                    </div>
+                </div>
+                <div class="fact-pill">
+                    <span class="fact-emoji">🎵</span>
+                    <div>
+                        <strong>Music Lover</strong>
+                        <small>Coding playlist</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini Journey Timeline -->
+            <div class="mini-journey">
+                <h4 class="mj-title">📍 My Quick Journey</h4>
+                <div class="mj-timeline">
+                    <div class="mj-step">
+                        <span class="mj-year">2019</span>
+                        <p>Started BSc IT 🎓</p>
+                    </div>
+                    <div class="mj-line"></div>
+                    <div class="mj-step">
+                        <span class="mj-year">2022</span>
+                        <p>Got my degree 🎯</p>
+                    </div>
+                    <div class="mj-line"></div>
+                    <div class="mj-step">
+                        <span class="mj-year">2022</span>
+                        <p>First QA role 💼</p>
+                    </div>
+                    <div class="mj-line"></div>
+                    <div class="mj-step mj-current">
+                        <span class="mj-year">2024</span>
+                        <p>Helping you now! ✨</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SKILLS ============ -->
+        <section class="section-block" id="skills">
+            <div class="section-header-creative">
+                <span class="section-num">02</span>
+                <div class="section-title-box">
+                    <span class="section-tag-new">My Skills</span>
+                    <h2>What I'm <span class="curve-underline">great</span> at</h2>
+                </div>
+                <div class="section-deco">⚡</div>
+            </div>
+
+            <!-- Skill Progress Bars -->
+            <div class="skills-top-grid">
+                <div class="skill-level-card">
+                    <div class="slc-header">
+                        <div class="slc-icon"><i class="fa-solid fa-bug"></i></div>
+                        <div>
+                            <h4>Manual Testing</h4>
+                            <small>Expert Level</small>
                         </div>
-                        <div class="highlights">
-                            <span class="highlight-tag"><i class="fa-solid fa-code" aria-hidden="true"></i> Software Testing</span>
-                            <span class="highlight-tag"><i class="fa-solid fa-database" aria-hidden="true"></i> Database Management</span>
-                            <span class="highlight-tag"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> Networking</span>
+                        <span class="slc-percent">95%</span>
+                    </div>
+                    <div class="slc-bar"><div class="slc-fill" data-fill="95"></div></div>
+                </div>
+
+                <div class="skill-level-card">
+                    <div class="slc-header">
+                        <div class="slc-icon slc-icon-purple"><i class="fa-solid fa-server"></i></div>
+                        <div>
+                            <h4>API Testing</h4>
+                            <small>Advanced Level</small>
+                        </div>
+                        <span class="slc-percent">90%</span>
+                    </div>
+                    <div class="slc-bar"><div class="slc-fill" data-fill="90"></div></div>
+                </div>
+
+                <div class="skill-level-card">
+                    <div class="slc-header">
+                        <div class="slc-icon slc-icon-pink"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <div>
+                            <h4>Mobile Testing</h4>
+                            <small>Advanced Level</small>
+                        </div>
+                        <span class="slc-percent">88%</span>
+                    </div>
+                    <div class="slc-bar"><div class="slc-fill" data-fill="88"></div></div>
+                </div>
+
+                <div class="skill-level-card">
+                    <div class="slc-header">
+                        <div class="slc-icon slc-icon-mint"><i class="fa-solid fa-diagram-project"></i></div>
+                        <div>
+                            <h4>Agile / Scrum</h4>
+                            <small>Expert Level</small>
+                        </div>
+                        <span class="slc-percent">92%</span>
+                    </div>
+                    <div class="slc-bar"><div class="slc-fill" data-fill="92"></div></div>
+                </div>
+            </div>
+
+            <!-- Tools Grid -->
+            <div class="tools-master">
+                <h4 class="tm-title">🛠️ Tools I Use Daily</h4>
+                <div class="tools-master-grid">
+                    <div class="tool-master"><i class="fa-brands fa-jira"></i><span>Jira</span><small>Issue Tracking</small></div>
+                    <div class="tool-master"><i class="fa-solid fa-paper-plane"></i><span>Postman</span><small>API Testing</small></div>
+                    <div class="tool-master"><i class="fa-solid fa-file-code"></i><span>Swagger</span><small>API Docs</small></div>
+                    <div class="tool-master"><i class="fa-solid fa-database"></i><span>MySQL</span><small>Database</small></div>
+                    <div class="tool-master"><i class="fa-solid fa-check-double"></i><span>ClickUp</span><small>Project Mgmt</small></div>
+                    <div class="tool-master"><i class="fa-brands fa-chrome"></i><span>DevTools</span><small>Web Inspect</small></div>
+                    <div class="tool-master"><i class="fa-brands fa-android"></i><span>Android</span><small>Mobile Test</small></div>
+                    <div class="tool-master"><i class="fa-brands fa-apple"></i><span>iOS</span><small>Mobile Test</small></div>
+                </div>
+            </div>
+
+            <!-- Testing Types Cloud -->
+            <div class="testing-cloud">
+                <h4 class="tc-title">🧪 Testing Types I Master</h4>
+                <div class="cloud-tags">
+                    <span class="ct-tag ct-big">Functional</span>
+                    <span class="ct-tag ct-big">Regression</span>
+                    <span class="ct-tag ct-med">Smoke</span>
+                    <span class="ct-tag ct-med">Sanity</span>
+                    <span class="ct-tag ct-big">UAT</span>
+                    <span class="ct-tag ct-sm">Adhoc</span>
+                    <span class="ct-tag ct-med">UI Testing</span>
+                    <span class="ct-tag ct-sm">Cross-Browser</span>
+                    <span class="ct-tag ct-big">API Testing</span>
+                    <span class="ct-tag ct-med">Database</span>
+                    <span class="ct-tag ct-sm">Integration</span>
+                    <span class="ct-tag ct-med">System</span>
+                </div>
+            </div>
+
+            <!-- Currently Learning -->
+            <div class="learning-now">
+                <div class="ln-header">
+                    <span class="ln-pulse"></span>
+                    <h4>📚 Currently Learning</h4>
+                </div>
+                <div class="ln-grid">
+                    <div class="ln-item">
+                        <span class="ln-emoji">🤖</span>
+                        <div>
+                            <strong>Selenium Automation</strong>
+                            <div class="ln-progress"><div class="ln-fill" style="width: 60%"></div></div>
+                            <small>60% complete</small>
+                        </div>
+                    </div>
+                    <div class="ln-item">
+                        <span class="ln-emoji">⚡</span>
+                        <div>
+                            <strong>JMeter Performance Testing</strong>
+                            <div class="ln-progress"><div class="ln-fill" style="width: 40%"></div></div>
+                            <small>40% complete</small>
+                        </div>
+                    </div>
+                    <div class="ln-item">
+                        <span class="ln-emoji">🔒</span>
+                        <div>
+                            <strong>Security Testing Basics</strong>
+                            <div class="ln-progress"><div class="ln-fill" style="width: 25%"></div></div>
+                            <small>25% complete</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EXPERIENCE ============ -->
+        <section class="section-block" id="experience">
+            <div class="section-header-creative">
+                <span class="section-num">03</span>
+                <div class="section-title-box">
+                    <span class="section-tag-new">My Journey</span>
+                    <h2>Where I've <span class="curve-underline">worked</span></h2>
+                </div>
+                <div class="section-deco">💼</div>
+            </div>
+
+            <!-- Career Stats Bar -->
+            <div class="career-stats-bar">
+                <div class="cs-item">
+                    <span class="cs-emoji">⏱️</span>
+                    <div>
+                        <strong data-count="2">0</strong><sup>+</sup>
+                        <small>Years Total</small>
+                    </div>
+                </div>
+                <div class="cs-divider"></div>
+                <div class="cs-item">
+                    <span class="cs-emoji">🏢</span>
+                    <div>
+                        <strong data-count="2">0</strong>
+                        <small>Companies</small>
+                    </div>
+                </div>
+                <div class="cs-divider"></div>
+                <div class="cs-item">
+                    <span class="cs-emoji">🐛</span>
+                    <div>
+                        <strong data-count="500">0</strong><sup>+</sup>
+                        <small>Bugs Found</small>
+                    </div>
+                </div>
+                <div class="cs-divider"></div>
+                <div class="cs-item">
+                    <span class="cs-emoji">📝</span>
+                    <div>
+                        <strong data-count="1000">0</strong><sup>+</sup>
+                        <small>Test Cases</small>
+                    </div>
+                </div>
+                <div class="cs-divider"></div>
+                <div class="cs-item">
+                    <span class="cs-emoji">🚀</span>
+                    <div>
+                        <strong data-count="10">0</strong><sup>+</sup>
+                        <small>Releases</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Cards -->
+            <div class="exp-cards">
+                <div class="exp-flip-card">
+                    <div class="exp-ribbon">CURRENT</div>
+                    <div class="exp-top-row">
+                        <div class="exp-logo-big"><i class="fa-solid fa-building"></i></div>
+                        <div class="exp-period-tag">
+                            <span class="period-from">Jun 2023</span>
+                            <span class="period-sep">→</span>
+                            <span class="period-to">Present</span>
+                        </div>
+                    </div>
+                    <h3>Quality Assurance Tester</h3>
+                    <h4>PhiBonacci Solutions Pvt. Ltd.</h4>
+                    <p class="exp-loc"><i class="fa-solid fa-location-dot"></i> Ahmedabad, India • Full-time</p>
+                    
+                    <div class="exp-mini-stats">
+                        <div class="ems-item"><strong>300+</strong><small>Bugs</small></div>
+                        <div class="ems-item"><strong>600+</strong><small>Test Cases</small></div>
+                        <div class="ems-item"><strong>8</strong><small>Releases</small></div>
+                    </div>
+                    
+                    <div class="exp-achievements">
+                        <h5>🏆 Key Achievements</h5>
+                        <div class="achievement-item">
+                            <span class="ach-emoji">🎯</span>
+                            <p>Designed & executed comprehensive test plans for web and mobile apps (iOS & Android)</p>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="ach-emoji">🐛</span>
+                            <p>Performed Functional, Regression, Smoke, UAT, UI & System testing</p>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="ach-emoji">🤝</span>
+                            <p>Collaborated with developers to identify and resolve defects via Jira</p>
+                        </div>
+                    </div>
+
+                    <div class="exp-skills-section">
+                        <h5>💡 Skills Used</h5>
+                        <div class="exp-skills-row">
+                            <span>Jira</span><span>Postman</span><span>Swagger</span><span>API Testing</span><span>Manual</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 12th Standard -->
-                <div class="education-card card-secondary">
-                    <div class="card-ribbon ribbon-secondary"><span>12th Standard</span></div>
-                    <div class="degree-icon icon-secondary">
-                        <i class="fa-solid fa-school" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>HSC (Higher Secondary Certificate)</h3>
-                        <p class="institute">
-                            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
-                            RR Dwivedi School – Ahmedabad
-                        </p>
-                        <p class="year">
-                            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
-                            2018 – 2019
-                        </p>
-                        <div class="grade-info">
-                            <div class="grade-badge badge-secondary">
-                                <span class="grade-label">Percentage</span>
-                                <span class="grade-value">70%</span>
-                            </div>
-                            <div class="duration">
-                                <i class="fa-solid fa-clock" aria-hidden="true"></i> 2 Years
-                            </div>
+                <div class="exp-flip-card exp-flip-alt">
+                    <div class="exp-ribbon exp-ribbon-alt">INTERNSHIP</div>
+                    <div class="exp-top-row">
+                        <div class="exp-logo-big exp-logo-alt"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div class="exp-period-tag">
+                            <span class="period-from">Nov 2022</span>
+                            <span class="period-sep">→</span>
+                            <span class="period-to">May 2023</span>
                         </div>
-                        <div class="highlights">
-                            <span class="highlight-tag"><i class="fa-solid fa-flask" aria-hidden="true"></i> Science Stream</span>
-                            <span class="highlight-tag"><i class="fa-solid fa-calculator" aria-hidden="true"></i> Mathematics</span>
+                    </div>
+                    <h3>QA Manual Tester</h3>
+                    <h4>i2iCore Technologies</h4>
+                    <p class="exp-loc"><i class="fa-solid fa-location-dot"></i> Ahmedabad, India • Internship</p>
+                    
+                    <div class="exp-mini-stats">
+                        <div class="ems-item"><strong>500+</strong><small>Bugs</small></div>
+                        <div class="ems-item"><strong>400+</strong><small>Test Cases</small></div>
+                        <div class="ems-item"><strong>3</strong><small>Releases</small></div>
+                    </div>
+
+                    <div class="exp-achievements">
+                        <h5>🏆 Key Achievements</h5>
+                        <div class="achievement-item">
+                            <span class="ach-emoji">🏆</span>
+                            <p>Identified & reported <strong>500+ defects</strong>, including critical issues</p>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="ach-emoji">📝</span>
+                            <p>Assisted in test case execution and defect analysis</p>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="ach-emoji">⚙️</span>
+                            <p>Participated in test planning and execution phases</p>
+                        </div>
+                    </div>
+
+                    <div class="exp-skills-section">
+                        <h5>💡 Skills Gained</h5>
+                        <div class="exp-skills-row">
+                            <span>Test Cases</span><span>Bug Reporting</span><span>SDLC</span><span>Manual</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Certifications -->
-                <div class="education-card card-certification">
-                    <div class="card-ribbon ribbon-certification"><span>Certifications</span></div>
-                    <div class="degree-icon icon-certification">
-                        <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+            <!-- Companies Marquee -->
+            <div class="companies-strip">
+                <h4 class="cs-strip-title">🏢 Companies I've Worked With</h4>
+                <div class="companies-marquee">
+                    <div class="cm-track">
+                        <div class="cm-item">📊 PhiBonacci Solutions</div>
+                        <div class="cm-item">💻 i2iCore Technologies</div>
+                        <div class="cm-item">🚀 Open for new opportunities</div>
+                        <div class="cm-item">📊 PhiBonacci Solutions</div>
+                        <div class="cm-item">💻 i2iCore Technologies</div>
+                        <div class="cm-item">🚀 Open for new opportunities</div>
                     </div>
-                    <div class="card-content">
-                        <h3>Professional Certifications</h3>
-                        <div class="cert-list">
-                            <div class="cert-item">
-                                <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Software Testing Fundamentals</strong>
-                                    <span>Online Course – 2023</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EDUCATION ============ -->
+        <section class="section-block" id="education">
+            <div class="section-header-creative">
+                <span class="section-num">04</span>
+                <div class="section-title-box">
+                    <span class="section-tag-new">Learning Path</span>
+                    <h2>My <span class="curve-underline">growth</span> roadmap</h2>
+                </div>
+                <div class="section-deco">🗺️</div>
+            </div>
+            
+            <div class="edu-tracker">
+                <div class="tracker-info">
+                    <span class="tracker-label">📊 Career Progress</span>
+                    <span class="tracker-percent">85%</span>
+                </div>
+                <div class="tracker-bar">
+                    <div class="tracker-fill" data-fill="85"></div>
+                </div>
+                <div class="tracker-stops">
+                    <span class="stop active">🎒</span>
+                    <span class="stop active">📚</span>
+                    <span class="stop active">🎓</span>
+                    <span class="stop active">💼</span>
+                    <span class="stop active-pulse">🚀</span>
+                    <span class="stop">⭐</span>
+                </div>
+            </div>
+            
+            <div class="roadmap-container">
+                <svg class="roadmap-svg" viewBox="0 0 1000 700" preserveAspectRatio="none">
+                    <path d="M 100 50 Q 300 50 500 150 T 900 250 Q 700 350 500 400 T 100 500 Q 300 600 500 650" 
+                        stroke="url(#pathGradient)" stroke-width="4" fill="none" 
+                        stroke-dasharray="12 8" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffb088"/>
+                            <stop offset="50%" stop-color="#b8a4d4"/>
+                            <stop offset="100%" stop-color="#a8e0d4"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                
+                <div class="roadmap-grid">
+                    <div class="roadmap-node">
+                        <div class="node-pin">
+                            <span class="pin-emoji">🎒</span>
+                            <span class="pin-year">2018-19</span>
+                        </div>
+                        <div class="node-card">
+                            <span class="node-badge badge-start">START</span>
+                            <h3>HSC</h3>
+                            <p class="node-school">RR Dwivedi School</p>
+                            <div class="node-grade">
+                                <div class="grade-circle">70%</div>
+                                <div class="grade-info">
+                                    <small>Achievement</small>
+                                    <strong>Higher Secondary</strong>
                                 </div>
                             </div>
-                            <div class="cert-item">
-                                <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
-                                <div>
-                                    <strong>Agile & Scrum Methodologies</strong>
-                                    <span>Self-Paced Learning – 2023</span>
+                            <div class="node-skills">
+                                <span>📐 Math</span><span>🔬 Science</span><span>💻 Computer</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-node">
+                        <div class="node-pin">
+                            <span class="pin-emoji">🎓</span>
+                            <span class="pin-year">2019-22</span>
+                        </div>
+                        <div class="node-card">
+                            <span class="node-badge badge-progress">DEGREE</span>
+                            <h3>BSc IT</h3>
+                            <p class="node-school">Indus University</p>
+                            <div class="node-grade">
+                                <div class="grade-circle">7.5</div>
+                                <div class="grade-info">
+                                    <small>CGPA</small>
+                                    <strong>Information Technology</strong>
                                 </div>
                             </div>
-                            <div class="cert-item">
-                                <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
-                                <div>
-                                    <strong>API Testing with Postman</strong>
-                                    <span>Udemy – 2024</span>
+                            <div class="node-skills">
+                                <span>💾 Database</span><span>🌐 Web Dev</span><span>📊 Software</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-node">
+                        <div class="node-pin pin-active">
+                            <span class="pin-emoji">📜</span>
+                            <span class="pin-year">2023-24</span>
+                        </div>
+                        <div class="node-card node-current">
+                            <span class="node-badge badge-current">CURRENT</span>
+                            <h3>Certifications</h3>
+                            <p class="node-school">Online Platforms</p>
+                            <div class="cert-checkbox">
+                                <label><span class="check">✓</span> Software Testing Fundamentals</label>
+                                <label><span class="check">✓</span> API Testing with Postman</label>
+                                <label><span class="check">✓</span> Agile & Scrum</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="roadmap-node">
+                        <div class="node-pin pin-future">
+                            <span class="pin-emoji">⭐</span>
+                            <span class="pin-year">2025+</span>
+                        </div>
+                        <div class="node-card node-future">
+                            <span class="node-badge badge-future">FUTURE</span>
+                            <h3>Next Goals</h3>
+                            <p class="node-school">Continuous Learning</p>
+                            <div class="future-goals">
+                                <div class="goal-item">
+                                    <span class="goal-icon">🤖</span><span>Automation Testing</span>
+                                </div>
+                                <div class="goal-item">
+                                    <span class="goal-icon">🔒</span><span>Security Testing</span>
+                                </div>
+                                <div class="goal-item">
+                                    <span class="goal-icon">⚡</span><span>Performance Testing</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Education Timeline -->
-            <div class="education-timeline">
-                <div class="timeline-progress">
-                    <div class="timeline-progress-inner">
-                        <div class="timeline-step">
-                            <div class="step-icon" role="img" aria-label="Started degree">🎓</div>
-                            <span>2019</span>
-                            <p>Started BSc IT</p>
-                        </div>
-                        <div class="timeline-line" aria-hidden="true"></div>
-                        <div class="timeline-step">
-                            <div class="step-icon" role="img" aria-label="Graduated">📚</div>
-                            <span>2022</span>
-                            <p>Graduated</p>
-                        </div>
-                        <div class="timeline-line" aria-hidden="true"></div>
-                        <div class="timeline-step">
-                            <div class="step-icon" role="img" aria-label="Started career">💼</div>
-                            <span>2023</span>
-                            <p>Started QA Career</p>
-                        </div>
-                        <div class="timeline-line" aria-hidden="true"></div>
-                        <div class="timeline-step active">
-                            <div class="step-icon" role="img" aria-label="Present">🚀</div>
-                            <span>2025</span>
-                            <p>Present</p>
-                        </div>
-                    </div>
+            
+            <div class="edu-stats-row">
+                <div class="edu-stat-item">
+                    <span class="es-emoji">⏱️</span>
+                    <div><h4>6+ Years</h4><p>Total Learning</p></div>
+                </div>
+                <div class="edu-stat-item">
+                    <span class="es-emoji">📚</span>
+                    <div><h4>3+ Degrees</h4><p>& Certificates</p></div>
+                </div>
+                <div class="edu-stat-item">
+                    <span class="es-emoji">🎯</span>
+                    <div><h4>100%</h4><p>Dedication</p></div>
+                </div>
+                <div class="edu-stat-item">
+                    <span class="es-emoji">🚀</span>
+                    <div><h4>Always</h4><p>Growing</p></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ========================================
-         PROJECTS SECTION
-         ======================================== -->
-    <section class="projects" id="projects" aria-label="Projects tested">
-        <div class="projects-container">
-            <div class="section-title">
-                <span class="section-subtitle">My Work</span>
-                <h2>Projects Tested</h2>
-                <div class="underline"></div>
-                <p class="section-description">
-                    Real-world projects where I ensured quality and delivered bug-free experiences.
-                </p>
+        <!-- ============ PROJECTS ============ -->
+        <section class="section-block" id="projects">
+            <div class="section-header-creative">
+                <span class="section-num">05</span>
+                <div class="section-title-box">
+                    <span class="section-tag-new">My Work</span>
+                    <h2>Projects I've <span class="curve-underline">tested</span></h2>
+                </div>
+                <div class="section-deco">🚀</div>
             </div>
 
-            <!-- Filter Buttons -->
-            <div class="project-filters" role="group" aria-label="Filter projects">
-                <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="projects-grid">
-
-                <!-- Project 1: Forex -->
-                <article class="project-card" data-category="web mobile api">
-                    <div class="project-header forex">
-                        <div class="project-icon" aria-hidden="true">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <div class="header-content">
-                            <h3>Forex Trading Application</h3>
-                            <span class="project-badge featured">
-                                <i class="fa-solid fa-star" aria-hidden="true"></i> Featured Project
-                            </span>
-                        </div>
-                        <div class="platform-badges">
-                            <span class="platform-badge"><i class="fa-solid fa-globe" aria-hidden="true"></i> Web</span>
-                            <span class="platform-badge"><i class="fa-brands fa-android" aria-hidden="true"></i> Android</span>
-                            <span class="platform-badge"><i class="fa-brands fa-apple" aria-hidden="true"></i> iOS</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-stats" aria-label="Project statistics">
-                            <div class="stat"><span class="stat-value">150+</span><span class="stat-label">Bugs Found</span></div>
-                            <div class="stat"><span class="stat-value">300+</span><span class="stat-label">Test Cases</span></div>
-                            <div class="stat"><span class="stat-value">6</span><span class="stat-label">Releases</span></div>
-                        </div>
-                        <div class="features-section">
-                            <h4><i class="fa-solid fa-list-check" aria-hidden="true"></i> Key Features Tested</h4>
-                            <ul class="features-list">
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Trading flow and real-time chart analysis</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> UPI & Crypto payment gateway transactions</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Deposit/Withdrawal process validation</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Identified critical bugs in payment & transaction flow</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> API response validation using Postman</li>
-                            </ul>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Functional</span>
-                            <span class="project-tag">Regression</span>
-                            <span class="project-tag">UAT</span>
-                            <span class="project-tag">Payment Testing</span>
-                            <span class="project-tag">API Testing</span>
-                        </div>
-                        <div class="tools-used">
-                            <h5><i class="fa-solid fa-wrench" aria-hidden="true"></i> Tools Used</h5>
-                            <div class="tools-list">
-                                <span class="tool"><i class="fa-brands fa-jira" aria-hidden="true"></i> Jira</span>
-                                <span class="tool"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Postman</span>
-                                <span class="tool"><i class="fa-solid fa-file-code" aria-hidden="true"></i> Swagger</span>
-                                <span class="tool"><i class="fa-brands fa-chrome" aria-hidden="true"></i> DevTools</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-footer">
-                        <span class="project-status completed">
-                            <span class="status-dot" aria-hidden="true"></span> Completed
-                        </span>
-                        <button class="view-details-btn" onclick="openProjectModal('forex')" aria-label="View Forex project details">
-                            View Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </article>
-
-                <!-- Project 2: E-Learning -->
-                <article class="project-card" data-category="web">
-                    <div class="project-header elearning">
-                        <div class="project-icon" aria-hidden="true">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div class="header-content">
-                            <h3>E-Learning Platform</h3>
-                            <span class="project-badge">
-                                <i class="fa-solid fa-book" aria-hidden="true"></i> Education Domain
-                            </span>
-                        </div>
-                        <div class="platform-badges">
-                            <span class="platform-badge"><i class="fa-solid fa-globe" aria-hidden="true"></i> Web</span>
-                            <span class="platform-badge"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Responsive</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-stats" aria-label="Project statistics">
-                            <div class="stat"><span class="stat-value">200+</span><span class="stat-label">Bugs Found</span></div>
-                            <div class="stat"><span class="stat-value">400+</span><span class="stat-label">Test Cases</span></div>
-                            <div class="stat"><span class="stat-value">3</span><span class="stat-label">Modules</span></div>
-                        </div>
-                        <div class="features-section">
-                            <h4><i class="fa-solid fa-list-check" aria-hidden="true"></i> Key Features Tested</h4>
-                            <ul class="features-list">
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Login & Registration system with OTP verification</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Course enrollment and video playback functionality</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Progress tracking and certificate generation</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Payment gateway integration testing</li>
-                            </ul>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Functional</span>
-                            <span class="project-tag">Regression</span>
-                            <span class="project-tag">UI Testing</span>
-                            <span class="project-tag">UAT</span>
-                        </div>
-                        <div class="tools-used">
-                            <h5><i class="fa-solid fa-wrench" aria-hidden="true"></i> Tools Used</h5>
-                            <div class="tools-list">
-                                <span class="tool"><i class="fa-brands fa-jira" aria-hidden="true"></i> Jira</span>
-                                <span class="tool"><i class="fa-solid fa-check-double" aria-hidden="true"></i> ClickUp</span>
-                                <span class="tool"><i class="fa-brands fa-chrome" aria-hidden="true"></i> DevTools</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-footer">
-                        <span class="project-status active">
-                            <span class="status-dot" aria-hidden="true"></span> Currently Testing
-                        </span>
-                        <button class="view-details-btn" onclick="openProjectModal('elearning')" aria-label="View E-Learning project details">
-                            View Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </article>
-
-                <!-- Project 3: Telecom -->
-                <article class="project-card" data-category="web mobile">
-                    <div class="project-header telecom">
-                        <div class="project-icon" aria-hidden="true">
-                            <i class="fa-solid fa-tower-cell"></i>
-                        </div>
-                        <div class="header-content">
-                            <h3>Telecom Service App</h3>
-                            <span class="project-badge">
-                                <i class="fa-solid fa-signal" aria-hidden="true"></i> Telecom Domain
-                            </span>
-                        </div>
-                        <div class="platform-badges">
-                            <span class="platform-badge"><i class="fa-solid fa-globe" aria-hidden="true"></i> Web</span>
-                            <span class="platform-badge"><i class="fa-brands fa-android" aria-hidden="true"></i> Android</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-stats" aria-label="Project statistics">
-                            <div class="stat"><span class="stat-value">100+</span><span class="stat-label">Bugs Found</span></div>
-                            <div class="stat"><span class="stat-value">250+</span><span class="stat-label">Test Cases</span></div>
-                            <div class="stat"><span class="stat-value">2</span><span class="stat-label">Releases</span></div>
-                        </div>
-                        <div class="features-section">
-                            <h4><i class="fa-solid fa-list-check" aria-hidden="true"></i> Key Features Tested</h4>
-                            <ul class="features-list">
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Recharge functionality & Plan selection</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Login & Billing system validation</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Data accuracy and calculation testing</li>
-                                <li><i class="fa-solid fa-check" aria-hidden="true"></i> User flow and navigation testing</li>
-                            </ul>
-                        </div>
-                        <div class="project-tags">
-                            <span class="project-tag">Regression</span>
-                            <span class="project-tag">Data Validation</span>
-                            <span class="project-tag">Functional</span>
-                            <span class="project-tag">Smoke Testing</span>
-                        </div>
-                        <div class="tools-used">
-                            <h5><i class="fa-solid fa-wrench" aria-hidden="true"></i> Tools Used</h5>
-                            <div class="tools-list">
-                                <span class="tool"><i class="fa-brands fa-jira" aria-hidden="true"></i> Jira</span>
-                                <span class="tool"><i class="fa-solid fa-database" aria-hidden="true"></i> MySQL</span>
-                                <span class="tool"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Postman</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-footer">
-                        <span class="project-status completed">
-                            <span class="status-dot" aria-hidden="true"></span> Completed
-                        </span>
-                        <button class="view-details-btn" onclick="openProjectModal('telecom')" aria-label="View Telecom project details">
-                            View Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </article>
-
-            </div>
-
-            <!-- Projects Summary -->
-            <div class="projects-summary" aria-label="Overall project statistics">
-                <div class="summary-card">
-                    <div class="summary-icon" aria-hidden="true"><i class="fa-solid fa-folder-open"></i></div>
-                    <div class="summary-content"><span class="summary-value">3+</span><span class="summary-label">Projects Completed</span></div>
+            <!-- Impact Dashboard -->
+            <div class="impact-dashboard">
+                <div class="impact-card impact-orange">
+                    <div class="ic-icon">🎯</div>
+                    <strong data-count="450">0</strong><sup>+</sup>
+                    <p>Total Bugs Found</p>
                 </div>
-                <div class="summary-card">
-                    <div class="summary-icon" aria-hidden="true"><i class="fa-solid fa-bug"></i></div>
-                    <div class="summary-content"><span class="summary-value">450+</span><span class="summary-label">Total Bugs Found</span></div>
+                <div class="impact-card impact-purple">
+                    <div class="ic-icon">📝</div>
+                    <strong data-count="950">0</strong><sup>+</sup>
+                    <p>Test Cases Written</p>
                 </div>
-                <div class="summary-card">
-                    <div class="summary-icon" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
-                    <div class="summary-content"><span class="summary-value">950+</span><span class="summary-label">Test Cases Written</span></div>
+                <div class="impact-card impact-pink">
+                    <div class="ic-icon">🚀</div>
+                    <strong data-count="11">0</strong>
+                    <p>Releases Delivered</p>
                 </div>
-                <div class="summary-card">
-                    <div class="summary-icon" aria-hidden="true"><i class="fa-solid fa-industry"></i></div>
-                    <div class="summary-content"><span class="summary-value">3</span><span class="summary-label">Domains Covered</span></div>
+                <div class="impact-card impact-mint">
+                    <div class="ic-icon">🏢</div>
+                    <strong data-count="3">0</strong>
+                    <p>Domains Covered</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ========================================
-         CONTACT SECTION
-         ======================================== -->
-    <section class="contact" id="contact" aria-label="Contact information">
-        <div class="contact-container">
-            <div class="section-title">
-                <span class="section-subtitle">Contact Me</span>
-                <h2>Get In Touch</h2>
-                <div class="underline"></div>
-                <p class="section-description">
-                    Have a project in mind or want to hire me? Feel free to reach out!
-                </p>
+            <!-- Filter Tabs -->
+            <div class="proj-filter-tabs">
+                <button class="pft-btn active" data-filter="all">
+                    <i class="fa-solid fa-list"></i> All Projects
+                </button>
+                <button class="pft-btn" data-filter="web">
+                    <i class="fa-solid fa-globe"></i> Web
+                </button>
+                <button class="pft-btn" data-filter="mobile">
+                    <i class="fa-solid fa-mobile-screen"></i> Mobile
+                </button>
+                <button class="pft-btn" data-filter="api">
+                    <i class="fa-solid fa-server"></i> API
+                </button>
             </div>
-
-            <div class="contact-grid">
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p class="contact-intro">
-                        I'm currently looking for new opportunities as a <strong>QA Manual Tester</strong>.
-                        Feel free to reach out!
-                    </p>
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="icon-box" aria-hidden="true">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div class="details">
-                                <h4>Location</h4>
-                                <p>Ahmedabad, Gujarat, India</p>
+            
+            <div class="projects-creative">
+                <div class="proj-creative proj-1" data-category="web mobile api">
+                    <div class="proj-mockup">
+                        <div class="mockup-window">
+                            <div class="mockup-bar"><span></span><span></span><span></span></div>
+                            <div class="mockup-screen"><i class="fa-solid fa-chart-line"></i></div>
+                        </div>
+                    </div>
+                    <div class="proj-info">
+                        <span class="proj-label">⭐ FEATURED PROJECT</span>
+                        <h3>Forex Trading Application</h3>
+                        <p>Web & Mobile testing with payment validation, real-time charts & API integration testing.</p>
+                        <div class="proj-numbers">
+                            <div><strong>150+</strong><span>Bugs</span></div>
+                            <div><strong>300+</strong><span>Test Cases</span></div>
+                            <div><strong>6</strong><span>Releases</span></div>
+                        </div>
+                        <div class="proj-tools-row">
+                            <small>🛠️ Tools Used:</small>
+                            <div class="ptr-list">
+                                <span>Jira</span><span>Postman</span><span>Swagger</span><span>DevTools</span>
                             </div>
                         </div>
-
-                        <a href="mailto:sanketbarot3901@gmail.com" class="contact-item clickable">
-                            <div class="icon-box email" aria-hidden="true">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div class="details">
-                                <h4>Email</h4>
-                                <p>sanketbarot3901@gmail.com</p>
-                            </div>
-                            <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
-                        </a>
-
-                        <a href="tel:+917487980840" class="contact-item clickable">
-                            <div class="icon-box phone" aria-hidden="true">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div class="details">
-                                <h4>Phone</h4>
-                                <p>+91 7487980840</p>
-                            </div>
-                            <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
-                        </a>
-
-                        <a href="https://www.linkedin.com/in/sanket-brahmbhatt-03705b227/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="contact-item clickable">
-                            <div class="icon-box linkedin" aria-hidden="true">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </div>
-                            <div class="details">
-                                <h4>LinkedIn</h4>
-                                <p>Connect with me</p>
-                            </div>
-                            <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
-                        </a>
-                    </div>
-
-                    <div class="availability" role="status">
-                        <div class="availability-dot" aria-hidden="true"></div>
-                        <span>Available for Immediate Joining</span>
-                    </div>
-
-                    <div class="social-links-contact">
-                        <h4>Follow Me</h4>
-                        <div class="social-icons">
-                            <a href="https://www.linkedin.com/in/sanket-brahmbhatt-03705b227/"
-                               target="_blank" rel="noopener noreferrer"
-                               class="social-icon linkedin"
-                               aria-label="LinkedIn profile">
-                                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-                            </a>
-                            <!-- ✅ Update with real GitHub username -->
-                            <a href="https://github.com/sanketbarot"
-                               target="_blank" rel="noopener noreferrer"
-                               class="social-icon github"
-                               aria-label="GitHub profile">
-                                <i class="fa-brands fa-github" aria-hidden="true"></i>
-                            </a>
-                            <a href="mailto:sanketbarot3901@gmail.com"
-                               class="social-icon email"
-                               aria-label="Send email">
-                                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            </a>
-                            <a href="https://wa.me/917487980840"
-                               target="_blank" rel="noopener noreferrer"
-                               class="social-icon whatsapp"
-                               aria-label="WhatsApp chat">
-                                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                            </a>
+                        <div class="proj-pills">
+                            <span>Web</span><span>Android</span><span>iOS</span><span>API</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="contact-form">
-                    <div class="form-header">
-                        <h3><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Me a Message</h3>
-                        <p>I'll get back to you within 24 hours!</p>
+                <div class="proj-creative proj-2 proj-reverse" data-category="web">
+                    <div class="proj-mockup">
+                        <div class="mockup-window mockup-purple">
+                            <div class="mockup-bar"><span></span><span></span><span></span></div>
+                            <div class="mockup-screen"><i class="fa-solid fa-graduation-cap"></i></div>
+                        </div>
                     </div>
+                    <div class="proj-info">
+                        <span class="proj-label proj-label-purple">📚 EDUCATION DOMAIN</span>
+                        <h3>E-Learning Platform</h3>
+                        <p>Login, course enrollment, payment gateway integration & video playback functionality testing.</p>
+                        <div class="proj-numbers">
+                            <div><strong>200+</strong><span>Bugs</span></div>
+                            <div><strong>400+</strong><span>Test Cases</span></div>
+                            <div><strong>3</strong><span>Modules</span></div>
+                        </div>
+                        <div class="proj-tools-row">
+                            <small>🛠️ Tools Used:</small>
+                            <div class="ptr-list">
+                                <span>Jira</span><span>ClickUp</span><span>DevTools</span>
+                            </div>
+                        </div>
+                        <div class="proj-pills">
+                            <span>Web</span><span>Responsive</span><span>UAT</span>
+                        </div>
+                    </div>
+                </div>
 
-                    <form id="contactForm" novalidate>
-                        <!-- ✅ Removed action/method - handled by JS -->
+                <div class="proj-creative proj-3" data-category="web mobile">
+                    <div class="proj-mockup">
+                        <div class="mockup-window mockup-pink">
+                            <div class="mockup-bar"><span></span><span></span><span></span></div>
+                            <div class="mockup-screen"><i class="fa-solid fa-tower-cell"></i></div>
+                        </div>
+                    </div>
+                    <div class="proj-info">
+                        <span class="proj-label proj-label-pink">📡 TELECOM DOMAIN</span>
+                        <h3>Telecom Service App</h3>
+                        <p>Recharge functionality, billing system, plan selection & data accuracy validation testing.</p>
+                        <div class="proj-numbers">
+                            <div><strong>100+</strong><span>Bugs</span></div>
+                            <div><strong>250+</strong><span>Test Cases</span></div>
+                            <div><strong>2</strong><span>Releases</span></div>
+                        </div>
+                        <div class="proj-tools-row">
+                            <small>🛠️ Tools Used:</small>
+                            <div class="ptr-list">
+                                <span>Jira</span><span>MySQL</span><span>Postman</span>
+                            </div>
+                        </div>
+                        <div class="proj-pills">
+                            <span>Web</span><span>Android</span><span>Data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section class="section-block" id="contact">
+            <div class="section-header-creative">
+                <span class="section-num">06</span>
+                <div class="section-title-box">
+                    <span class="section-tag-new">Let's Connect</span>
+                    <h2>Send me a <span class="curve-underline">message</span> 💌</h2>
+                </div>
+                <div class="section-deco">📬</div>
+            </div>
+            
+            <div class="contact-unique">
+                <div class="envelope-card">
+                    <div class="envelope-stamp">
+                        <span>📮</span>
+                        <small>Sanket B.</small>
+                        <small>India</small>
+                    </div>
+                    <div class="envelope-header">
+                        <span class="env-from">FROM: Anywhere</span>
+                        <span class="env-to">TO: Sanket Brahmbhatt</span>
+                    </div>
+                    <div class="envelope-divider">✂ - - - - - - - - - - - - - - - -</div>
+                    
+                    <div class="letter-content">
+                        <p class="letter-greeting">
+                            <span class="caveat">Dear Sanket,</span>
+                        </p>
+                        <p class="letter-body">
+                            I'd love to <span class="highlight-yellow">connect with you</span> for a 
+                            potential opportunity. I'm currently <span class="highlight-pink">looking for</span>...
+                        </p>
+                        
+                        <div class="letter-checkboxes">
+                            <h5>What do you need?</h5>
+                            <label class="check-item">
+                                <input type="checkbox" name="need" value="hire">
+                                <span class="check-box"></span>
+                                <span class="check-label">💼 Hiring full-time QA</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="need" value="freelance">
+                                <span class="check-box"></span>
+                                <span class="check-label">🚀 Freelance project</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="need" value="consult">
+                                <span class="check-box"></span>
+                                <span class="check-label">💡 Consultation</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="need" value="chat">
+                                <span class="check-box"></span>
+                                <span class="check-label">☕ Just want to chat</span>
+                            </label>
+                        </div>
+                        
+                        <form id="contactForm" class="letter-form" action="https://api.web3forms.com/submit" method="POST">
+    
+                        <!-- ✅ Your Web3Forms Access Key -->
                         <input type="hidden" name="access_key" value="ec727972-d665-4c03-9307-c482a8095bcf">
+                        
+                        <!-- ✅ Email subject line -->
+                        <input type="hidden" name="subject" value="🚀 New Contact from Portfolio - Sanket">
+                        
+                        <!-- ✅ Sender name shown in your inbox -->
+                        <input type="hidden" name="from_name" value="Sanket Portfolio Contact">
+                        
+                        <!-- ✅ Spam protection (honeypot - hidden from users) -->
+                        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">
-                                    <i class="fa-solid fa-user" aria-hidden="true"></i> Your Name
-                                </label>
-                                <input type="text" id="name" name="name"
-                                       placeholder="John Doe"
-                                       required autocomplete="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">
-                                    <i class="fa-solid fa-envelope" aria-hidden="true"></i> Your Email
-                                </label>
-                                <input type="email" id="email" name="email"
-                                       placeholder="john@example.com"
-                                       required autocomplete="email">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">
-                                <i class="fa-solid fa-heading" aria-hidden="true"></i> Subject
-                            </label>
-                            <input type="text" id="subject" name="subject"
-                                   placeholder="Job Opportunity / Project Discussion">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="projectType">
-                                <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Project Type
-                            </label>
-                            <select id="projectType" name="projectType">
-                                <option value="">Select an option</option>
-                                <option value="fulltime">Full-time Position</option>
-                                <option value="contract">Contract / Freelance</option>
-                                <option value="project">Project Testing</option>
-                                <option value="consultation">Consultation</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">
-                                <i class="fa-solid fa-message" aria-hidden="true"></i> Message
-                            </label>
-                            <textarea id="message" name="message" rows="5"
-                                      placeholder="Tell me about your requirements..."
-                                      required maxlength="500"></textarea>
-                            <span class="char-count" aria-live="polite">0 / 500</span>
-                        </div>
-
-                        <button type="submit" class="btn btn-submit" id="submitBtn">
-                            <span class="btn-text">
-                                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Message
-                            </span>
-                            <span class="btn-loading" aria-hidden="true">
-                                <i class="fa-solid fa-spinner fa-spin"></i> Sending...
-                            </span>
+                        <input type="text" name="name" placeholder="Your name" required>
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <textarea name="message" rows="3" placeholder="Write your message here..." required></textarea>
+                        
+                        <button type="submit" class="btn-3d btn-primary-3d full">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Seal & Send</span>
                         </button>
                     </form>
 
-                    <!-- Success -->
-                    <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
-                        <div class="success-icon" aria-hidden="true">
-                            <i class="fa-solid fa-circle-check"></i>
+                    <!-- ✅ Success/Error message container -->
+                    <div id="formResult" class="form-result"></div>
+                        
+                        <p class="letter-signature caveat">
+                            Looking forward to hearing from you! ✨
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-side">
+                    <div class="availability-card">
+                        <div class="avail-header">
+                            <h4>📅 My Availability</h4>
+                            <span class="avail-status">
+                                <span class="status-dot-mini"></span>
+                                Free for projects
+                            </span>
                         </div>
-                        <h4>Message Sent Successfully!</h4>
-                        <p>Thank you for reaching out. I'll get back to you soon.</p>
-                        <button class="btn btn-primary" onclick="resetForm()">
-                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-                            <span>Send Another Message</span>
-                        </button>
+                        <div class="avail-week">
+                            <div class="day-pill day-active"><span>MON</span><small>9-6</small></div>
+                            <div class="day-pill day-active"><span>TUE</span><small>9-6</small></div>
+                            <div class="day-pill day-active"><span>WED</span><small>9-6</small></div>
+                            <div class="day-pill day-active"><span>THU</span><small>9-6</small></div>
+                            <div class="day-pill day-active"><span>FRI</span><small>9-6</small></div>
+                            <div class="day-pill day-busy"><span>SAT</span><small>Off</small></div>
+                            <div class="day-pill day-busy"><span>SUN</span><small>Off</small></div>
+                        </div>
+                        <div class="avail-info">
+                            <div class="avail-info-row">
+                                <i class="fa-solid fa-clock"></i>
+                                <span>Response time: <strong>Within 24h</strong></span>
+                            </div>
+                            <div class="avail-info-row">
+                                <i class="fa-solid fa-globe"></i>
+                                <span>Timezone: <strong>IST (UTC+5:30)</strong></span>
+                            </div>
+                            <div class="avail-info-row">
+                                <i class="fa-solid fa-language"></i>
+                                <span>Languages: <strong>English, Hindi, Gujarati</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-reach">
+                        <h4>⚡ Quick Reach</h4>
+                        <div class="reach-grid">
+                            <a href="mailto:sanketbarot3901@gmail.com" class="reach-tile reach-email">
+                                <i class="fa-solid fa-envelope"></i><span>Email</span>
+                            </a>
+                            <a href="tel:+917487980840" class="reach-tile reach-phone">
+                                <i class="fa-solid fa-phone"></i><span>Call</span>
+                            </a>
+                            <a href="https://wa.me/917487980840" target="_blank" class="reach-tile reach-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sanket-brahmbhatt-03705b227/" target="_blank" class="reach-tile reach-linkedin">
+                                <i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-mini">
+                        <h4>❓ Quick FAQ</h4>
+                        <details class="faq-item">
+                            <summary>Are you available for remote work?</summary>
+                            <p>Yes! I'm open to remote, hybrid, and on-site opportunities.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>What's your notice period?</summary>
+                            <p>I can join immediately for the right opportunity!</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Do you take freelance projects?</summary>
+                            <p>Absolutely! I take on short-term QA contracts and consultations.</p>
+                        </details>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Quick Actions -->
-            <div class="quick-actions" aria-label="Quick contact options">
-                <a href="mailto:sanketbarot3901@gmail.com" class="quick-action-btn email">
-                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                    <span>Email Me Directly</span>
-                </a>
-                <a href="tel:+917487980840" class="quick-action-btn phone">
-                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                    <span>Call Me</span>
-                </a>
-                <a href="https://wa.me/917487980840" target="_blank" rel="noopener noreferrer" class="quick-action-btn whatsapp">
-                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="assets/resume/Sanket_Resume.pdf"
-                   download="Sanket_Brahmbhatt_Resume.pdf"
-                   class="quick-action-btn resume">
-                    <i class="fa-solid fa-download" aria-hidden="true"></i>
-                    <span>Download CV</span>
-                </a>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="footer-creative">
+            <!-- Newsletter Top Bar -->
+            <div class="footer-newsletter">
+                <div class="newsletter-left">
+                    <h3>📬 Stay in Touch!</h3>
+                    <p>Get notified about my latest projects and QA insights</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="ec727972-d665-4c03-9307-c482a8095bcf">
+                    <input type="hidden" name="subject" value="📬 New Newsletter Subscriber - Portfolio">
+                    <input type="hidden" name="from_name" value="Newsletter Subscriber">
+                    <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+                    
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <button type="submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Subscribe
+                    </button>
+                </form>
             </div>
-        </div>
-    </section>
 
-    <!-- ========================================
-         FOOTER
-         ======================================== -->
-    <footer class="footer" id="footer">
-        <div class="footer-container">
-            <div class="footer-top">
-                <!-- About Column -->
-                <div class="footer-column footer-about">
-                    <div class="footer-logo">
-                        <i class="fa-solid fa-vial" aria-hidden="true"></i>
-                        <span>QA Tester</span>
+            <!-- Main Footer Grid -->
+            <div class="footer-mid">
+                <div class="footer-col footer-brand-col">
+                    <div class="footer-brand-box">
+                        <span class="brand-emoji">⚡</span>
+                        <div>
+                            <h3>Sanket Brahmbhatt</h3>
+                            <p>QA Manual Tester | Bug Hunter 🐛</p>
+                        </div>
                     </div>
-                    <p class="footer-description">
-                        Dedicated Quality Assurance Professional with 2+ years of experience
-                        in ensuring software quality and delivering bug-free applications.
+                    <p class="footer-bio">
+                        Crafting bug-free software experiences with 3+ years of testing expertise. 
+                        Let's build quality together! ✨
                     </p>
-                    <div class="footer-stats" aria-label="Statistics">
-                        <div class="footer-stat">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Years Exp.</span>
-                        </div>
-                        <div class="footer-stat">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Bugs Found</span>
-                        </div>
-                        <div class="footer-stat">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Projects</span>
-                        </div>
+                    <div class="footer-socials">
+                        <a href="https://www.linkedin.com/in/sanket-brahmbhatt-03705b227/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/sanketbarot" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://wa.me/917487980840" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="mailto:sanketbarot3901@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                     </div>
                 </div>
 
-                <!-- Quick Links -->
-                <div class="footer-column">
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#hero"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Home</a></li>
-                        <li><a href="#about"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> About Me</a></li>
-                        <li><a href="#skills"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Skills</a></li>
-                        <li><a href="#experience"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Experience</a></li>
-                        <li><a href="#projects"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Projects</a></li>
-                        <li><a href="#contact"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Contact</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <h5>🧭 Navigation</h5>
+                    <a href="#home"><i class="fa-solid fa-arrow-right"></i> Home</a>
+                    <a href="#about"><i class="fa-solid fa-arrow-right"></i> About</a>
+                    <a href="#skills"><i class="fa-solid fa-arrow-right"></i> Skills</a>
+                    <a href="#experience"><i class="fa-solid fa-arrow-right"></i> Experience</a>
+                    <a href="#projects"><i class="fa-solid fa-arrow-right"></i> Projects</a>
+                    <a href="#contact"><i class="fa-solid fa-arrow-right"></i> Contact</a>
                 </div>
 
-                <!-- Services -->
-                <div class="footer-column">
-                    <h4 class="footer-heading">Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#skills"><i class="fa-solid fa-check" aria-hidden="true"></i> Manual Testing</a></li>
-                        <li><a href="#skills"><i class="fa-solid fa-check" aria-hidden="true"></i> Functional Testing</a></li>
-                        <li><a href="#skills"><i class="fa-solid fa-check" aria-hidden="true"></i> Regression Testing</a></li>
-                        <li><a href="#skills"><i class="fa-solid fa-check" aria-hidden="true"></i> API Testing</a></li>
-                        <li><a href="#skills"><i class="fa-solid fa-check" aria-hidden="true"></i> Mobile Testing</a></li>
-                        <li><a href="#skills"><i class="fa-solid fa-check" aria-hidden="true"></i> UAT Testing</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <h5>🛠️ Services</h5>
+                    <a href="#skills"><i class="fa-solid fa-check"></i> Manual Testing</a>
+                    <a href="#skills"><i class="fa-solid fa-check"></i> API Testing</a>
+                    <a href="#skills"><i class="fa-solid fa-check"></i> Mobile Testing</a>
+                    <a href="#skills"><i class="fa-solid fa-check"></i> Regression</a>
+                    <a href="#skills"><i class="fa-solid fa-check"></i> UAT Testing</a>
+                    <a href="#skills"><i class="fa-solid fa-check"></i> Bug Reporting</a>
                 </div>
 
-                <!-- Contact Info -->
-                <div class="footer-column">
-                    <h4 class="footer-heading">Get In Touch</h4>
-                    <ul class="footer-contact">
-                        <li>
-                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                            <span>Ahmedabad, Gujarat, India</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            <a href="mailto:sanketbarot3901@gmail.com">sanketbarot3901@gmail.com</a>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                            <a href="tel:+917487980840">+91 7487980840</a>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                            <span>Mon - Fri, 9AM - 6PM IST</span>
-                        </li>
-                    </ul>
-                    <div class="footer-availability">
-                        <span class="availability-dot" aria-hidden="true"></span>
-                        <span class="availability-text">Available for Opportunities</span>
-                    </div>
+                <div class="footer-col">
+                    <h5>📞 Get In Touch</h5>
+                    <a href="mailto:sanketbarot3901@gmail.com" class="fc-link">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>sanketbarot3901@gmail.com</span>
+                    </a>
+                    <a href="tel:+917487980840" class="fc-link">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 7487980840</span>
+                    </a>
+                    <span class="fc-link">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Ahmedabad, Gujarat, India</span>
+                    </span>
+                    <span class="fc-link">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon - Fri, 9AM - 6PM IST</span>
+                    </span>
+                    <a href="assets/resume/Sanket_Resume.pdf" download="Sanket_Brahmbhatt_Resume.pdf" class="footer-resume-btn">
+                        <i class="fa-solid fa-download"></i> Download Resume
+                    </a>
                 </div>
             </div>
 
-            <!-- Footer Middle -->
-            <div class="footer-middle">
-                <div class="footer-social-section">
-                    <h4>Follow Me On</h4>
-                    <div class="footer-social-links">
-                        <a href="https://www.linkedin.com/in/sanket-brahmbhatt-03705b227/"
-                           class="footer-social-link linkedin"
-                           target="_blank" rel="noopener noreferrer"
-                           aria-label="LinkedIn">
-                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/sanketbarot"
-                           class="footer-social-link github"
-                           target="_blank" rel="noopener noreferrer"
-                           aria-label="GitHub">
-                            <i class="fa-brands fa-github" aria-hidden="true"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="mailto:sanketbarot3901@gmail.com"
-                           class="footer-social-link email"
-                           aria-label="Email">
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            <span>Email</span>
-                        </a>
-                        <a href="https://wa.me/917487980840"
-                           class="footer-social-link whatsapp"
-                           target="_blank" rel="noopener noreferrer"
-                           aria-label="WhatsApp">
-                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                            <span>WhatsApp</span>
-                        </a>
-                    </div>
+            <!-- Footer Stats Bar -->
+            <div class="footer-stats">
+                <div class="fs-item">
+                    <strong>3+</strong>
+                    <small>Years</small>
                 </div>
-
-                <!-- Newsletter -->
-                <div class="footer-newsletter">
-                    <h4>Stay Updated</h4>
-                    <p>Get notified about my latest projects and achievements.</p>
-                    <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)" novalidate>
-                        <input type="email"
-                               placeholder="Enter your email"
-                               required
-                               name="newsletter-email"
-                               autocomplete="email"
-                               aria-label="Email for newsletter">
-                        <button type="submit" aria-label="Subscribe to newsletter">
-                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-                        </button>
-                    </form>
+                <div class="fs-divider"></div>
+                <div class="fs-item">
+                    <strong>500+</strong>
+                    <small>Bugs Found</small>
+                </div>
+                <div class="fs-divider"></div>
+                <div class="fs-item">
+                    <strong>1000+</strong>
+                    <small>Test Cases</small>
+                </div>
+                <div class="fs-divider"></div>
+                <div class="fs-item">
+                    <strong>3+</strong>
+                    <small>Projects</small>
+                </div>
+                <div class="fs-divider"></div>
+                <div class="fs-item">
+                    <strong>100%</strong>
+                    <small>Dedication</small>
                 </div>
             </div>
 
             <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p class="copyright">
-                        &copy; <span id="currentYear"></span>
-                        <strong>Sanket Brahmbhatt</strong>. All Rights Reserved.
-                    </p>
-                    <p class="footer-tagline">
-                        Crafted with <i class="fa-solid fa-heart" aria-hidden="true"></i> for Software Quality
-                    </p>
-                    <div class="footer-badges" aria-label="Professional tags">
-                        <span class="badge">Manual Tester</span>
-                        <span class="badge">QA Professional</span>
-                        <span class="badge">Quality Focused</span>
-                    </div>
-                </div>
+            <div class="footer-bottom-bar">
+                <p>© <span id="currentYear"></span> <strong>Sanket Brahmbhatt</strong> — All rights reserved.</p>
+                <p>Made with <span class="heart-beat">❤️</span> & lots of <span class="coffee-cup">☕</span> in Ahmedabad</p>
             </div>
-        </div>
-
-        <!-- Wave decoration -->
-        <div class="back-to-top-wave" aria-hidden="true">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
-            </svg>
         </div>
     </footer>
 
-    <!-- Scroll to Top -->
+    <!-- Floating WhatsApp Chat -->
+    <a href="https://wa.me/917487980840" target="_blank" class="float-chat" aria-label="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="chat-tooltip">Chat with me!</span>
+        <span class="chat-pulse"></span>
+    </a>
+
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-        <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
-        <span class="scroll-progress" aria-hidden="true"></span>
+        <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Analytics -->
-    <script data-goatcounter="https://sanket-portfolio.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js"></script>
-
-    <!-- Main JS -->
     <script src="script.js"></script>
-
 </body>
 </html>

@@ -1,0 +1,41 @@
+{
+    "name": "Sanket Brahmbhatt - QA Manual Tester Portfolio",
+    "short_name": "Sanket QA",
+    "description": "QA Manual Tester portfolio with 2+ years of experience in Web, Mobile & API Testing",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fef6ed",
+    "theme_color": "#ffb088",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "categories": ["portfolio", "business", "productivity"],
+    "icons": [
+        {
+            "src": "/assets/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/assets/screenshot-mobile.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "/assets/screenshot-desktop.png",
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "form_factor": "wide"
+        }
+    ]
+}
