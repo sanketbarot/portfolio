@@ -79,6 +79,16 @@
         <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="Expires" content="0">
 
+         <!-- ========== GOOGLE ANALYTICS ========== -->
+    <!-- FIX: moved gtag config inline to avoid extra round-trip -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QVFKTFQF4T', { page_path: window.location.pathname });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVFKTFQF4T"></script>
+
     <!-- ====================================================
          STRUCTURED DATA (Schema.org for Google)
          ==================================================== -->
@@ -109,6 +119,7 @@
         ]
     }
     </script>
+
 </head>
 
 
